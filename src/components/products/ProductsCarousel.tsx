@@ -6,26 +6,61 @@ import Link from "next/link";
 
 const ProductsCarousel = async () => {
   const products = await getAllProducts();
-  
-  return (
-    <div className="w-full overflow-x-auto">
-      <div className="bg-[#171717] flex space-x-2 md:space-x-5 flex-nowrap scroll-animate">
-        {products.map((product, _index) => (
-          <Link href={`/products/${product.slug}`}
-            key={product._id}
-            className="bg-[#000000] md:min-w-[450px] min-w-[250px] mb-5 h-[20vh] md:h-[30vh] rounded-md relative border hover:cursor-pointer border-transparent hover:border-blue-500 group">
-            <Image
-              src={product.image}
-              alt={product.title}
-              fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-contain p-2 group-hover:scale-105 transition-all duration-400"
-            />
 
-            <ProductTitlePriceCard product={product} />
-          </Link>
-        ))}
+  return (
+    <section className="w-full">
+      <div className="
+        w-full
+        overflow-x-auto
+        scroll-smooth
+        snap-x snap-mandatory
+        [-webkit-overflow-scrolling:touch]
+        [scrollbar-width:none]
+        [&::-webkit-scrollbar]:hidden
+      ">
+        <div className="
+          bg-[#171717]
+          flex flex-nowrap
+          gap-2 sm:gap-3 md:gap-4 lg:gap-5
+          px-3 sm:px-4 md:px-5
+          pb-4 md:pb-5
+          scroll-animate
+        ">
+          {products.map((product) => (
+            <Link
+              href={`/products/${product.slug}`}
+              key={product._id}
+              className="
+                snap-start shrink-0
+                bg-[#000000] rounded-md relative
+                border border-transparent hover:border-blue-500
+                hover:cursor-pointer group
+                /* width ladder: phone → phablet → tablet → desktop */
+                w-[200px]
+                sm:w-[260px]
+                md:w-[340px]
+                lg:w-[420px]
+                xl:w-[450px]
+                /* height ladder */
+                h-[18vh]
+                sm:h-[22vh]
+                md:h-[26vh]
+                lg:h-[30vh]
+              "
+            >
+              <Image
+                src={product.image}
+                alt={product.title}
+                fill
+                sizes="(max-width: 640px) 200px, (max-width: 768px) 260px, (max-width: 1024px) 340px, 450px"
+                className="object-contain p-2 sm:p-3 group-hover:scale-105 transition-all duration-400"
+              />
+              <ProductTitlePriceCard product={product} />
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
