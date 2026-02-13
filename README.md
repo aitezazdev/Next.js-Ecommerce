@@ -1,4 +1,4 @@
-# Ecommerce-Next.js
+# Next.js Ecommerce Web App
 
 This is a **full-stack e-commerce application** built using the **MERN stack** (MongoDB, Express.js, React, Node.js) with **Next.js** for the frontend. The backend APIs are powered by Next.js API routes, and MongoDB is used for data storage. It integrates **Redux Toolkit** for global state management, **Stripe** for payment processing, and **Zod** for input validation.
 
@@ -17,9 +17,9 @@ This is a **full-stack e-commerce application** built using the **MERN stack** (
 You can clone this repository and run the application locally:
 
 ```bash
-git clone https://github.com/aitezazdev/Ecommerce-Next.js.git
+git clone https://github.com/vilezaz/Next.js-Ecommerce.git
 
-cd Ecommerce-Next.js
+cd Next.js-Ecommerce
 npm install
 npm run dev
 ```
