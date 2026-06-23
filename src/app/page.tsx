@@ -1,6 +1,6 @@
 import ProductsCarousel from "@/components/products/ProductsCarousel";
 import ProductTitlePriceCard from "@/components/products/ProductTitlePriceCard";
-import { getRandomProducts } from "@/lib/apiClient/products";
+import { dbGetRandomProducts } from "@/lib/db/products";
 import Image from "next/image";
 import Link from "next/link";
 import { BiDollar } from "react-icons/bi";
@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const randomProducts = await getRandomProducts();
+  const randomProducts = await dbGetRandomProducts();
   const slug = "printed-summer-shirt";
 
   return (

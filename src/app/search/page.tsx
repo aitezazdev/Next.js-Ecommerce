@@ -1,7 +1,7 @@
 import CollectionSidebar from "@/components/CollectionSidebar";
 import ProductCard from "@/components/products/ProductCard";
 import SortingOrder from "@/components/SortingOrder";
-import { getAllProducts, searchProducts } from "@/lib/apiClient/products";
+import { dbGetAllProducts, dbSearchProducts } from "@/lib/db/products";
 import React from "react";
 
 export const metadata = {
@@ -17,7 +17,7 @@ const AllProductsPage = async ({ searchParams }: Props) => {
   const query = sp.query || "";
   const sort = sp.sort || "";
 
-  const products = query ? await searchProducts(query) : await getAllProducts();
+  const products = query ? await dbSearchProducts(query) : await dbGetAllProducts();
 
   const sortedProducts = [...products].sort((a, b) => {
     if (sort === "price-asc") return a.price - b.price;

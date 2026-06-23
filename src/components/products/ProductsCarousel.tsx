@@ -1,11 +1,11 @@
-import { getAllProducts } from "@/lib/apiClient/products";
+import { dbGetAllProducts } from "@/lib/db/products";
 import Image from "next/image";
 import React from "react";
 import ProductTitlePriceCard from "./ProductTitlePriceCard";
 import Link from "next/link";
 
 const ProductsCarousel = async () => {
-  const products = await getAllProducts();
+  const products = await dbGetAllProducts();
 
   return (
     <section className="w-full">

@@ -1,7 +1,7 @@
 import CollectionSidebar from "@/components/CollectionSidebar";
 import ProductCard from "@/components/products/ProductCard";
 import SortingOrder from "@/components/SortingOrder";
-import { getProductByCategory } from "@/lib/apiClient/products";
+import { dbGetProductByCategory } from "@/lib/db/products";
 import React from "react";
 
 type Props = {
@@ -14,7 +14,7 @@ const CategoryPage = async ({ params, searchParams }: Props) => {
   const sort = sp.sort || "";
 
   const category = params.category.toLowerCase();
-  const products = await getProductByCategory(category);
+  const products = await dbGetProductByCategory(category);
 
   const sortedProducts = [...products].sort((a, b) => {
     if (sort === "price-asc") return a.price - b.price;
