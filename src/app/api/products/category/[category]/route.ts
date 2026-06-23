@@ -4,16 +4,16 @@ import { Product } from "@/lib/models/Product";
 import { NextRequest, NextResponse } from "next/server";
 
 type Params = {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 };
 
 export const GET = async (_req: NextRequest, context: Params) => {
   try {
     await connectDB();
 
-    const { category } = context.params;
+    const { category } = await context.params;
     if (!category) {
       return NextResponse.json(
         { message: "Category not found" },

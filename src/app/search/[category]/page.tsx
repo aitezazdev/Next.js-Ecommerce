@@ -5,15 +5,16 @@ import { dbGetProductByCategory } from "@/lib/db/products";
 import React from "react";
 
 type Props = {
-  params: { category: string };
+  params: Promise<{ category: string }>;
   searchParams: Promise<{ sort?: string }>;
 };
 
 const CategoryPage = async ({ params, searchParams }: Props) => {
-   const sp = await searchParams;
+  const sp = await searchParams;
+  const p = await params;
   const sort = sp.sort || "";
 
-  const category = params.category.toLowerCase();
+  const category = p.category.toLowerCase();
   const products = await dbGetProductByCategory(category);
 
   const sortedProducts = [...products].sort((a, b) => {

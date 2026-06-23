@@ -7,9 +7,9 @@ import { NextRequest, NextResponse } from "next/server";
 import slugify from "slugify";
 
 type Params = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 // update a product
@@ -17,7 +17,7 @@ export const PUT = async (req: NextRequest, { params }: Params) => {
   try {
     await connectDB();
 
-    const { id } = params;
+    const { id } = await params;
 
     const product = await Product.findById(id);
     if (!product) {
@@ -82,7 +82,7 @@ export const DELETE = async (req: NextRequest, { params }: Params) => {
   try {
     await connectDB();
 
-    const { id } = params;
+    const { id } = await params;
 
     const deleteProduct = await Product.findByIdAndDelete(id);
     if (!deleteProduct) {

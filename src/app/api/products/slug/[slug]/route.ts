@@ -4,16 +4,17 @@ import { Product } from "@/lib/models/Product";
 import { NextRequest, NextResponse } from "next/server";
 
 type Params = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export const GET = async (_req: NextRequest, { params }: Params) => {
   try {
     await connectDB();
 
-    const product = await Product.findOne({ slug: params.slug });
+    const { slug } = await params;
+    const product = await Product.findOne({ slug });
     if (!product) {
       return NextResponse.json(
         {
