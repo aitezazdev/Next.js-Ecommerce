@@ -28,7 +28,7 @@ export default async function HomePage() {
           "
         >
           <Image
-            src="/products/shirts/shirt4.png"
+            src="/products/shirts/shirt4.webp"
             alt="Summer Shirt"
             fill
             sizes="(max-width: 768px) 100vw, 66vw"
