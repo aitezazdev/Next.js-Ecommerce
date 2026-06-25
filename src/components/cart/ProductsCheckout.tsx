@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { BiDollar } from "react-icons/bi";
 import { PulseLoader } from "react-spinners";
 
+import { toast } from "react-toastify";
+
 type Props = {
   totalAmount: () => number;
 };
@@ -18,12 +20,14 @@ const ProductsCheckout = ({ totalAmount }: Props) => {
         credentials: "include",
       });
       const data = await res.json();
-      if (data.url) {
+      if (res.ok && data.url) {
         window.location.href = data.url;
       } else {
+        toast.error(data.error || data.message || "Failed to initiate checkout");
         setLoading(false);
       }
-    } catch (error) {
+    } catch (error: any) {
+      toast.error(error?.message || "An error occurred during checkout");
       setLoading(false);
     }
   };
