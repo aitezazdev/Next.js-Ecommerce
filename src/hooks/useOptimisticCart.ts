@@ -6,6 +6,7 @@ import { RootState, AppDispatch } from "@/redux/store";
 import { addToCart, decreaseCart } from "@/redux/auth/cartThunks";
 import toast from "react-hot-toast";
 import { CartItem } from "@/types/cartItem";
+import { Product } from "@/types/product";
 
 type ActionType = "increase" | "decrease";
 
@@ -27,37 +28,56 @@ export function useOptimisticCart() {
     (
       state,
       {
-        productId,
+        product,
         size,
         type,
-      }: { productId: string; size: string; type: ActionType }
+      }: { product: Product | string; size: string; type: ActionType }
     ) => {
-      return state
-        .map((item) => {
-          if (item.product._id === productId && item.size === size) {
-            const newQty =
-              type === "increase" ? item.quantity + 1 : item.quantity - 1;
-            return newQty > 0 ? { ...item, quantity: newQty } : null;
-          }
-          return item;
-        })
-        .filter(Boolean) as CartItem[];
+      const productId = typeof product === "string" ? product : product._id;
+      const exists = state.some(
+        (item) => item.product._id === productId && item.size === size
+      );
+
+      if (type === "increase") {
+        if (exists) {
+          return state.map((item) => {
+            if (item.product._id === productId && item.size === size) {
+              return { ...item, quantity: item.quantity + 1 };
+            }
+            return item;
+          });
+        } else if (typeof product !== "string") {
+          return [...state, { product, size, quantity: 1 }];
+        }
+      } else if (type === "decrease") {
+        return state
+          .map((item) => {
+            if (item.product._id === productId && item.size === size) {
+              const newQty = item.quantity - 1;
+              return newQty > 0 ? { ...item, quantity: newQty } : null;
+            }
+            return item;
+          })
+          .filter(Boolean) as CartItem[];
+      }
+      return state;
     }
   );
 
   const handleUpdate = async (
-    productId: string,
+    product: Product | string,
     size: string,
     type: ActionType
   ) => {
+    const productId = typeof product === "string" ? product : product._id;
     const rollback: any = {
-      productId,
+      product: productId,
       size,
       type: type === "increase" ? "decrease" : "increase",
     };
 
     startTransition(async () => {
-      updateOptimistic({ productId, size, type });
+      updateOptimistic({ product, size, type });
 
       try {
         if (type === "increase") {
@@ -86,10 +106,10 @@ export function useOptimisticCart() {
   return {
     optimisticItems,
     isPending,
-    handleIncrease: (id: string, size: string) =>
-      handleUpdate(id, size, "increase"),
-    handleDecrease: (id: string, size: string) =>
-      handleUpdate(id, size, "decrease"),
+    handleIncrease: (product: Product | string, size: string) =>
+      handleUpdate(product, size, "increase"),
+    handleDecrease: (product: Product | string, size: string) =>
+      handleUpdate(product, size, "decrease"),
     totalAmount,
   };
 }

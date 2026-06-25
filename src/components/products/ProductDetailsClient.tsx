@@ -28,7 +28,7 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
       return;
     }
     if (selectedSize) {
-      handleIncrease(product._id, selectedSize);
+      handleIncrease(product, selectedSize);
       dispatch(openCart());
       setSelectedSize(null);
       toast.success("Added to cart");

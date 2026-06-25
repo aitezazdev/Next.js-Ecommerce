@@ -29,7 +29,7 @@ const ProductCard = async ({ product }: Props) => {
 
       <ProductTitlePriceCard product={product} source="productCard" />
 
-      <AddToCartBtn productId={product._id} category={product.category} />
+      <AddToCartBtn product={product} category={product.category} />
     </Link>
   );
 };

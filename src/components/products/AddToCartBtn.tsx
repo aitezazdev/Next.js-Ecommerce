@@ -7,13 +7,14 @@ import { AppDispatch, RootState } from "@/redux/store";
 import React from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import { Product } from "@/types/product";
 import { IoAdd } from "react-icons/io5";
 
 const AddToCartBtn = ({
-  productId,
+  product,
   category,
 }: {
-  productId: string;
+  product: Product;
   category: string;
 }) => {
   const { user, loading } = useSelector((state: RootState) => state.auth);
@@ -33,7 +34,7 @@ const AddToCartBtn = ({
       return;
     }
     try {
-      handleIncrease(productId, size);
+      handleIncrease(product, size);
       dispatch(openCart());
       toast.success("Added to cart");
     } catch (error: any) {
