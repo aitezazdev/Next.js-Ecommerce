@@ -18,7 +18,7 @@ const Search = ({ onSearch }: Props) => {
         key={searchParams.get("query")}
         autoComplete="off"
         defaultValue={searchParams.get("query") || ""}
-        className="min-w-80 border border-gray-600 outline-none rounded-md py-1.5 px-3 placeholder:text-sm placeholder:text-gray-400"
+        className="w-full md:w-48 lg:w-80 border border-gray-600 outline-none rounded-md py-1.5 px-3 placeholder:text-sm placeholder:text-gray-400"
         type="text"
         placeholder="Search for Products ..."
       />

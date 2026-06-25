@@ -7,6 +7,7 @@ import { AppDispatch, RootState } from "@/redux/store";
 import React from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import { IoAdd } from "react-icons/io5";
 
 const AddToCartBtn = ({
   productId,
@@ -45,8 +46,9 @@ const AddToCartBtn = ({
         handleClick(e);
         addProductToCart();
       }}
-      className="absolute text-sm md:text-base right-3 top-3 px-3 py-1.5 border-2 border-blue-500 rounded-3xl text-white bg-blue-500 font-semibold hover:cursor-pointer hover:bg-blue-600 transition-colors duration-200">
-      Add To Cart
+      className="absolute right-3 top-3 w-9 h-9 md:w-auto md:h-auto p-2 md:px-3 md:py-1.5 border-2 border-blue-500 rounded-full md:rounded-3xl text-white bg-blue-500 font-semibold hover:cursor-pointer hover:bg-blue-600 transition-all duration-300 flex items-center justify-center shadow-md active:scale-95">
+      <span className="hidden md:inline">Add To Cart</span>
+      <span className="inline md:hidden flex items-center justify-center"><IoAdd size={18} /></span>
     </button>
   );
 };
