@@ -49,7 +49,7 @@ export const POST = async (req: NextRequest) => {
       password: hashPassword,
     });
 
-    const token = tokenSignIn({ id: user._id });
+    const token = tokenSignIn({ userId: user._id });
 
     (await cookies()).set("token", token, {
       httpOnly: true,

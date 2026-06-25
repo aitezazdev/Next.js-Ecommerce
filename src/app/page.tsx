@@ -4,6 +4,7 @@ import { dbGetRandomProducts } from "@/lib/db/products";
 import Image from "next/image";
 import Link from "next/link";
 import { BiDollar } from "react-icons/bi";
+import { getCleanImageUrl } from "@/lib/utils/products";
 
 export const metadata = {
   title: "Zaz Store",
@@ -69,7 +70,7 @@ export default async function HomePage() {
               "
             >
               <Image
-                src={product.image}
+                src={getCleanImageUrl(product.image)}
                 alt={product.title}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"

@@ -73,66 +73,63 @@ const Navbar = () => {
 
       <div
         onClick={closeMobileMenu}
-        className={`fixed inset-0 z-50 cursor-pointer bg-black/50 backdrop-blur-sm transition-opacity duration-200 ${
+        className={`fixed inset-0 z-50 cursor-pointer bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}>
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`absolute top-0 left-0 w-full sm:w-[400px] max-h-[80vh] bg-[#171717] border-b border-gray-800 backdrop-blur-3xl rounded-b-md shadow-xl transform transition-transform duration-300 ${
-            isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+          className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#121212] border-l border-gray-800/80 shadow-2xl flex flex-col transform transition-transform duration-300 z-50 ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}>
-          <div className="flex justify-between items-center mb-4 px-5 mt-2.5">
-            <h2 className="text-lg font-bold">Menu</h2>
+          <div className="flex justify-between items-center px-5 py-4 border-b border-gray-800/60">
+            <h2 className="text-lg font-bold tracking-wide">Menu</h2>
             <button
-              className="text-xl border rounded-sm p-1.5 border-gray-600 cursor-pointer group transition-all duration-300"
+              className="text-xl border rounded-md p-1.5 border-gray-700 cursor-pointer hover:bg-gray-800 transition-all duration-300"
               onClick={closeMobileMenu}>
-              <IoClose
-                className="cursor-pointer group-hover:scale-105"
-                size={24}
-              />
+              <IoClose size={20} />
             </button>
           </div>
 
-          <div className=" py-3 mx-5 border-b border-gray-600">
+          <div className="p-4 border-b border-gray-800/60">
             <Search onSearch={closeMobileMenu} />
           </div>
 
-          <div className="flex flex-col space-y-1 py-3">
+          <div className="flex flex-col space-y-1.5 p-4 grow overflow-y-auto">
             <Link
               href="/search"
-              className="px-4 py-0.5 text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
               onClick={closeMobileMenu}>
-              All
+              All Products
             </Link>
             <Link
               href="/search/shirts"
-              className="px-4 py-0.5 text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
               onClick={closeMobileMenu}>
               Shirts
             </Link>
             <Link
               href="/search/shoes"
-              className="px-4 py-0.5 text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
               onClick={closeMobileMenu}>
               Shoes
             </Link>
             <Link
               href="/search/pants"
-              className="px-4 py-0.5 text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
               onClick={closeMobileMenu}>
               Pants
             </Link>
             <Link
               href="/search/caps"
-              className="px-4 py-0.5 text-gray-400 hover:text-white hover:bg-gray-700 transition-colors"
+              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
               onClick={closeMobileMenu}>
               Caps
             </Link>
           </div>
 
-          <div className="px-4 py-3 border-t border-gray-600">
+          <div className="p-5 border-t border-gray-800/60 bg-[#171717]/50 flex justify-center">
             {user ? <SignOutBtn /> : <LoginBtn />}
           </div>
         </div>

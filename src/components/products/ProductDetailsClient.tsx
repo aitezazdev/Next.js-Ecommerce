@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useOptimisticCart } from "@/hooks/useOptimisticCart";
 import { Product } from "@/types/product";
+import { getCleanImageUrl } from "@/lib/utils/products";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { openCart } from "@/redux/slices/modalSlice";
@@ -54,7 +55,7 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
         shrink-0
       ">
         <Image
-          src={product.image}
+          src={getCleanImageUrl(product.image)}
           alt={product.title}
           fill
           priority

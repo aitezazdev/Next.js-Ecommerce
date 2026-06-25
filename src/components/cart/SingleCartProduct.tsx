@@ -2,6 +2,7 @@
 import { CartItem } from "@/types/cartItem";
 import Image from "next/image";
 import { HiMinusSm, HiOutlinePlusSm } from "react-icons/hi";
+import { getCleanImageUrl } from "@/lib/utils/products";
 import React from "react";
 import { BiDollar } from "react-icons/bi";
 
@@ -19,7 +20,7 @@ const SingleCartProduct = ({ item, onDecrease, onIncrease }: Props) => {
       <Image
         width={56}
         height={56}
-        src={product.image || "/fallback.jpg"}
+        src={getCleanImageUrl(product.image)}
         alt={product.title}
         className="rounded-md w-16 h-16 p-1 border border-gray-700 object-cover"
       />

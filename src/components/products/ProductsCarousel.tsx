@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import ProductTitlePriceCard from "./ProductTitlePriceCard";
 import Link from "next/link";
+import { getCleanImageUrl } from "@/lib/utils/products";
 
 const ProductsCarousel = async () => {
   const products = await dbGetAllProducts();
@@ -49,7 +50,7 @@ const ProductsCarousel = async () => {
               "
             >
               <Image
-                src={product.image}
+                src={getCleanImageUrl(product.image)}
                 alt={product.title}
                 fill
                 sizes="(max-width: 640px) 200px, (max-width: 768px) 260px, (max-width: 1024px) 340px, 450px"

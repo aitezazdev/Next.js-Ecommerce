@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import ProductTitlePriceCard from "./ProductTitlePriceCard";
 import Link from "next/link";
+import { getCleanImageUrl } from "@/lib/utils/products";
 import AddToCartBtn from "./AddToCartBtn";
 
 type Props = {
@@ -17,7 +18,7 @@ const ProductCard = async ({ product }: Props) => {
       className="relative bg-[#000000] text-white rounded-md shadow-lg overflow-hidden hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 h-[260px] md:h-[350px] group hover:cursor-pointer border border-transparent hover:border-blue-500">
       <div className="relative w-full h-52 sm:h-64 md:h-72">
         <Image
-          src={product.image}
+          src={getCleanImageUrl(product.image)}
           alt={product.title}
           priority
           fill

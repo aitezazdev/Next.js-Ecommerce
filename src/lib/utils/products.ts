@@ -5,3 +5,10 @@ export const getSizesByCategory = (category: string) => {
 
   return ["XS", "S", "M", "L", "XL"];
 };
+
+export const getCleanImageUrl = (url: string | undefined): string => {
+  if (!url) return "/fallback.jpg";
+  return url
+    .replace(/\.png$/, ".webp")
+    .replace("/shoes/shoes", "/shoes/shoe");
+};
