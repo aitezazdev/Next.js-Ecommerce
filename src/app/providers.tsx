@@ -5,6 +5,7 @@ import { AppDispatch, store } from "@/redux/store";
 import { useEffect } from "react";
 import { setUser } from "@/redux/slices/authSlice";
 import { fetchCart } from "@/redux/auth/cartThunks";
+import { CartProvider } from "@/hooks/useOptimisticCart";
 
 function HydrateUser({ user }: { user: any }) {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,7 +35,9 @@ export default function ReduxProvider({
   return (
     <Provider store={store}>
       <HydrateUser user={user} />
-      {children}
+      <CartProvider>
+        {children}
+      </CartProvider>
     </Provider>
   );
 }

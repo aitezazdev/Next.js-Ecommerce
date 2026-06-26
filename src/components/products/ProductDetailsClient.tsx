@@ -124,7 +124,7 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
 
         <button
           onClick={handleAddToCart}
-          disabled={!selectedSize || isPending}
+          disabled={!selectedSize}
           className={`
             mt-1 sm:mt-2
             px-4 sm:px-6
@@ -134,13 +134,13 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
             transition-colors duration-300
             hover:cursor-pointer
             flex items-center justify-center min-h-[44px]
-            ${!selectedSize || isPending
+            ${!selectedSize
               ? "bg-blue-400 cursor-not-allowed opacity-70"
               : "bg-blue-500 hover:bg-blue-600"
             }
           `}
         >
-          {isPending ? <PulseLoader size={6} color="#fff" /> : "Add to Cart"}
+          Add to Cart
         </button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 import { CartItem } from "@/types/cartItem";
 import Image from "next/image";
-import { HiMinusSm, HiOutlinePlusSm } from "react-icons/hi";
+import { HiMinusSm, HiOutlinePlusSm, HiOutlineTrash } from "react-icons/hi";
 import { getCleanImageUrl } from "@/lib/utils/products";
 import React from "react";
 import { BiDollar } from "react-icons/bi";
@@ -10,9 +10,10 @@ interface Props {
   item: CartItem;
   onDecrease: (productId: string, size: string) => void;
   onIncrease: (productId: string, size: string) => void;
+  onRemove: (productId: string, size: string) => void;
 }
 
-const SingleCartProduct = ({ item, onDecrease, onIncrease }: Props) => {
+const SingleCartProduct = ({ item, onDecrease, onIncrease, onRemove }: Props) => {
   const { product, quantity, size } = item;
 
   return (
@@ -30,28 +31,43 @@ const SingleCartProduct = ({ item, onDecrease, onIncrease }: Props) => {
         <p className="text-xs text-gray-400">Size: {size}</p>
       </div>
 
-      <div className="flex w-full flex-row justify-center md:flex-col items-center gap-2">
+      <div className="flex w-full flex-row justify-between sm:justify-center md:flex-col items-center gap-2">
         <p className="text-sm font-bold text-gray-400 flex items-center">
           <BiDollar />
           {(product.price * quantity).toFixed(2)}
         </p>
         <div className="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-1.5 border border-gray-700 rounded-full">
           <button
-            className="text-white hover:text-red-400 transition"
+            className="text-white hover:text-red-400 transition flex items-center justify-center cursor-pointer"
             onClick={() => onDecrease(product._id, size)}
+            title={quantity === 1 ? "Remove item" : "Decrease quantity"}
           >
-            <HiMinusSm className="text-lg" />
+            {quantity === 1 ? (
+              <HiOutlineTrash className="text-lg" />
+            ) : (
+              <HiMinusSm className="text-lg" />
+            )}
           </button>
-          <span className="text-sm text-white font-semibold min-w-[16px] text-center">
+          <span className="text-sm text-white font-semibold min-w-[16px] text-center select-none">
             {quantity}
           </span>
           <button
             onClick={() => onIncrease(product._id, size)}
-            className="text-white hover:text-green-400 transition"
+            className="text-white hover:text-green-400 transition flex items-center justify-center cursor-pointer"
+            title="Increase quantity"
           >
             <HiOutlinePlusSm className="text-lg" />
           </button>
         </div>
+        {quantity > 1 && (
+          <button
+            onClick={() => onRemove(product._id, size)}
+            className="text-xs text-gray-500 hover:text-red-400 transition underline cursor-pointer md:mt-1 mt-0"
+            title="Remove item from cart"
+          >
+            Remove
+          </button>
+        )}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import ProductsCheckout from "./ProductsCheckout";
 import { FiShoppingCart } from "react-icons/fi";
 
 const CartProducts = () => {
-  const { optimisticItems, handleDecrease, handleIncrease, totalAmount } =
+  const { optimisticItems, handleDecrease, handleIncrease, handleRemove, totalAmount } =
     useOptimisticCart();
 
   if (!optimisticItems || optimisticItems.length === 0) {
@@ -30,6 +30,7 @@ const CartProducts = () => {
             item={item}
             onDecrease={handleDecrease}
             onIncrease={handleIncrease}
+            onRemove={handleRemove}
           />
         ))}
       </div>
