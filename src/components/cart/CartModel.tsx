@@ -29,7 +29,7 @@ const CartModel = ({ isOpen, onClose }: Cart) => {
       }`}>
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`absolute right-0 top-0 h-full w-3/4 sm:w-[400px] border-l border-zinc-800 cursor-default bg-zinc-950/95 p-0.5 md:p-6 shadow-2xl transition-transform duration-300 ${
+        className={`absolute right-0 top-0 h-full w-3/4 sm:w-[400px] border-l border-zinc-800 cursor-default bg-zinc-950 p-0.5 md:p-6 shadow-2xl transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transform`}>
         <div className="flex justify-between items-center mb-6 px-3 sm:px-5 mt-2.5">
