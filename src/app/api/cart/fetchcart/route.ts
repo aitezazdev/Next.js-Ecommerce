@@ -18,7 +18,8 @@ export const POST = async (req: NextRequest) => {
     const user = await User.findById(userId).populate("cart.product");
     if(!user.cart ||user.cart.length === 0) {
       return NextResponse.json({
-        message: "Cart is empty"
+        message: "Cart is empty",
+        cart: []
       })
     }
 

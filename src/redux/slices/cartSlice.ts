@@ -33,7 +33,7 @@ const cartSlice = createSlice({
       })
       .addCase(fetchCart.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = action.payload || [];
       })
       .addCase(fetchCart.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const cartSlice = createSlice({
       })
       .addCase(addToCart.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = action.payload || [];
       })
       .addCase(addToCart.rejected, (state, action) => {
         state.loading = false;
@@ -57,7 +57,7 @@ const cartSlice = createSlice({
       })
       .addCase(decreaseCart.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = action.payload || [];
       })
       .addCase(decreaseCart.rejected, (state, action) => {
         state.loading = false;
@@ -69,7 +69,7 @@ const cartSlice = createSlice({
       })
       .addCase(removeFromCart.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = action.payload?.cart || [];
       })
       .addCase(removeFromCart.rejected, (state, action) => {
         state.loading = false;

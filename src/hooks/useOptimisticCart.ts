@@ -25,45 +25,46 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const reduxItems = useSelector((state: RootState) => state.cart.items);
   const dispatch = useDispatch<AppDispatch>();
 
-  const [cachedItems, setCachedItems] = useState<CartItem[]>(reduxItems);
+  const [cachedItems, setCachedItems] = useState<CartItem[]>(reduxItems || []);
   const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     if (!isPending) {
-      setCachedItems(reduxItems);
+      setCachedItems(reduxItems || []);
     }
   }, [reduxItems, isPending]);
 
   const [optimisticItems, updateOptimistic] = useOptimistic(
     cachedItems,
     (
-      state,
+      state = [],
       {
         product,
         size,
         type,
       }: { product: Product | string; size: string; type: ActionType }
     ) => {
+      const activeState = state || [];
       const productId = typeof product === "string" ? product : product._id;
-      const exists = state.some(
-        (item) => item.product._id === productId && item.size === size
+      const exists = activeState.some(
+        (item) => item.product?._id === productId && item.size === size
       );
 
       if (type === "increase") {
         if (exists) {
-          return state.map((item) => {
-            if (item.product._id === productId && item.size === size) {
+          return activeState.map((item) => {
+            if (item.product?._id === productId && item.size === size) {
               return { ...item, quantity: item.quantity + 1 };
             }
             return item;
           });
         } else if (typeof product !== "string") {
-          return [...state, { product, size, quantity: 1 }];
+          return [...activeState, { product, size, quantity: 1 }];
         }
       } else if (type === "decrease") {
-        return state
+        return activeState
           .map((item) => {
-            if (item.product._id === productId && item.size === size) {
+            if (item.product?._id === productId && item.size === size) {
               const newQty = item.quantity - 1;
               return newQty > 0 ? { ...item, quantity: newQty } : null;
             }
@@ -71,11 +72,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
           })
           .filter(Boolean) as CartItem[];
       } else if (type === "remove") {
-        return state.filter(
-          (item) => !(item.product._id === productId && item.size === size)
+        return activeState.filter(
+          (item) => !(item.product?._id === productId && item.size === size)
         );
       }
-      return state;
+      return activeState;
     }
   );
 
