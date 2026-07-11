@@ -27,7 +27,7 @@ const CartProducts = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-3 h-[calc(100vh-260px)] overflow-y-auto pr-1 scrollbar-thin">
+      <div className="flex flex-col gap-3 h-[calc(100vh-330px)] overflow-y-auto pr-1 scrollbar-thin">
         {validItems.map((item) => (
           <SingleCartProduct
             key={`${item.product?._id || (item.product as any)}-${item.size}`}
