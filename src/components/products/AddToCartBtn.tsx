@@ -47,9 +47,9 @@ const AddToCartBtn = ({
         handleClick(e);
         addProductToCart();
       }}
-      className="absolute right-3 top-3 w-9 h-9 md:w-auto md:h-auto p-2 md:px-3 md:py-1.5 border-2 border-blue-500 rounded-full md:rounded-3xl text-white bg-blue-500 font-semibold hover:cursor-pointer hover:bg-blue-600 transition-all duration-300 flex items-center justify-center shadow-md active:scale-95">
-      <span className="hidden md:inline">Add To Cart</span>
-      <span className="inline md:hidden flex items-center justify-center"><IoAdd size={18} /></span>
+      className="absolute right-3 top-3 w-8 h-8 md:w-auto md:h-auto p-1.5 md:px-4 md:py-1.5 rounded-full text-zinc-950 bg-white hover:cursor-pointer hover:bg-zinc-200 transition-all duration-250 flex items-center justify-center shadow-lg active:scale-95 text-[10px] font-semibold uppercase tracking-wider">
+      <span className="hidden md:inline">Add to Cart</span>
+      <span className="inline md:hidden flex items-center justify-center"><IoAdd size={16} /></span>
     </button>
   );
 };

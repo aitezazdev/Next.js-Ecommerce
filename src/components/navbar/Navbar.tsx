@@ -26,13 +26,13 @@ const Navbar = () => {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <nav className="bg-[#171717] text-white py-2 select-none fixed w-full z-50">
-      <div className="flex items-center justify-between md:py-2 py-1 px-4 md:px-10">
-        <h1 className="text-lg md:text-xl font-bold">
-          <Link href="/">ZAZ STORE.</Link>
+    <nav className="bg-zinc-950/80 backdrop-blur-md text-white py-3 select-none fixed w-full z-50 border-b border-zinc-900/80">
+      <div className="flex items-center justify-between md:py-2 py-1 px-4 md:px-8">
+        <h1 className="text-lg md:text-xl font-bold tracking-wider">
+          <Link href="/" className="hover:opacity-90 transition-opacity">ZAZ STORE</Link>
         </h1>
 
-        <div className="hidden md:flex space-x-5 text-gray-400">
+        <div className="hidden md:flex space-x-6">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
 
@@ -40,10 +40,10 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition-colors ${
+                className={`text-xs uppercase tracking-widest transition-colors font-medium ${
                   isActive
-                    ? "text-blue-500 font-bold"
-                    : "text-gray-400 hover:text-white"
+                    ? "text-white"
+                    : "text-zinc-400 hover:text-white"
                 }`}>
                 {link.label}
               </Link>
@@ -60,13 +60,13 @@ const Navbar = () => {
           {user ? <SignOutBtn /> : <LoginBtn />}
         </div>
 
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex md:hidden items-center gap-3">
           <CartBtn />
           <button
             onClick={openMobileMenu}
-            className="p-2 rounded-md hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-lg hover:bg-zinc-900 border border-zinc-800 transition-colors"
             aria-label="Open mobile menu">
-            <RxHamburgerMenu size={24} />
+            <RxHamburgerMenu size={20} />
           </button>
         </div>
       </div>
@@ -80,56 +80,56 @@ const Navbar = () => {
         }`}>
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#121212] border-l border-gray-800/80 shadow-2xl flex flex-col transform transition-transform duration-300 z-50 ${
+          className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-zinc-950/95 border-l border-zinc-900 shadow-2xl flex flex-col transform transition-transform duration-300 z-50 ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}>
-          <div className="flex justify-between items-center px-5 py-4 border-b border-gray-800/60">
-            <h2 className="text-lg font-bold tracking-wide">Menu</h2>
+          <div className="flex justify-between items-center px-5 py-4 border-b border-zinc-900">
+            <h2 className="text-sm uppercase tracking-widest text-zinc-400 font-semibold">Menu</h2>
             <button
-              className="text-xl border rounded-md p-1.5 border-gray-700 cursor-pointer hover:bg-gray-800 transition-all duration-300"
+              className="text-white border rounded-lg p-1.5 border-zinc-800 cursor-pointer hover:bg-zinc-900 transition-all duration-300"
               onClick={closeMobileMenu}>
-              <IoClose size={20} />
+              <IoClose size={18} />
             </button>
           </div>
 
-          <div className="p-4 border-b border-gray-800/60">
+          <div className="p-4 border-b border-zinc-900">
             <Search onSearch={closeMobileMenu} />
           </div>
 
-          <div className="flex flex-col space-y-1.5 p-4 grow overflow-y-auto">
+          <div className="flex flex-col space-y-1 p-4 grow overflow-y-auto">
             <Link
               href="/search"
-              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
+              className="px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors font-medium text-xs uppercase tracking-wider"
               onClick={closeMobileMenu}>
               All Products
             </Link>
             <Link
               href="/search/shirts"
-              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
+              className="px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors font-medium text-xs uppercase tracking-wider"
               onClick={closeMobileMenu}>
               Shirts
             </Link>
             <Link
               href="/search/shoes"
-              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
+              className="px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors font-medium text-xs uppercase tracking-wider"
               onClick={closeMobileMenu}>
               Shoes
             </Link>
             <Link
               href="/search/pants"
-              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
+              className="px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors font-medium text-xs uppercase tracking-wider"
               onClick={closeMobileMenu}>
               Pants
             </Link>
             <Link
               href="/search/caps"
-              className="px-4 py-2.5 text-gray-400 hover:text-white hover:bg-gray-800/60 rounded-md transition-colors font-medium text-sm"
+              className="px-4 py-3 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors font-medium text-xs uppercase tracking-wider"
               onClick={closeMobileMenu}>
               Caps
             </Link>
           </div>
 
-          <div className="p-5 border-t border-gray-800/60 bg-[#171717]/50 flex justify-center">
+          <div className="p-5 border-t border-zinc-900 bg-zinc-950 flex justify-center">
             {user ? <SignOutBtn /> : <LoginBtn />}
           </div>
         </div>

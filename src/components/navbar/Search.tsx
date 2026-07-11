@@ -18,12 +18,12 @@ const Search = ({ onSearch }: Props) => {
         key={searchParams.get("query")}
         autoComplete="off"
         defaultValue={searchParams.get("query") || ""}
-        className="w-full md:w-48 lg:w-80 border border-gray-600 outline-none rounded-md py-1.5 px-3 placeholder:text-sm placeholder:text-gray-400"
+        className="w-full md:w-48 lg:w-80 bg-zinc-900/50 border border-zinc-800 focus:border-zinc-700 text-white outline-none rounded-full py-1.5 pl-4 pr-10 placeholder:text-xs placeholder:uppercase placeholder:tracking-wider placeholder:text-zinc-500 text-xs transition-all duration-300"
         type="text"
-        placeholder="Search for Products ..."
+        placeholder="Search..."
       />
-      <button type="submit" className="relative right-7 text-gray-400">
-        <IoSearch />
+      <button type="submit" className="relative right-8 text-zinc-400 hover:text-white transition-colors cursor-pointer">
+        <IoSearch size={14} />
       </button>
     </Form>
   );

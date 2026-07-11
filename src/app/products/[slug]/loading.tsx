@@ -3,33 +3,34 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Loading() {
   return (
-    <div className="w-full min-h-screen p-4 pt-8 sm:p-6 md:p-10 bg-black flex flex-col md:flex-row gap-6 md:gap-10">
+    <div className="w-full min-h-screen p-4 pt-24 pb-12 sm:p-6 md:p-10 bg-zinc-950 flex flex-col md:flex-row gap-6 md:gap-10">
       {/* Product image skeleton */}
-      <div className="relative w-full md:w-2/3 h-72 sm:h-96 md:h-[80vh]">
+      <div className="relative w-full md:w-2/3 h-72 sm:h-96 md:h-[80vh] bg-zinc-900/10 border border-zinc-900/60 rounded-2xl p-2">
         <Skeleton
           height="100%"
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
-          className="rounded-md"
+          baseColor="#18181b"
+          highlightColor="#27272a"
+          className="rounded-2xl"
         />
       </div>
 
       {/* Product details skeleton */}
-      <div className="w-full md:w-1/3 text-white flex flex-col justify-center gap-4 sm:gap-5">
+      <div className="w-full md:w-1/3 text-white flex flex-col justify-center gap-4 sm:gap-5 mt-6 md:mt-20">
         {/* Title */}
         <Skeleton
           width="70%"
           height={40}
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          baseColor="#18181b"
+          highlightColor="#27272a"
+          className="rounded-lg"
         />
 
         {/* Price */}
         <Skeleton
           width={100}
           height={30}
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          baseColor="#18181b"
+          highlightColor="#27272a"
           className="rounded-full"
         />
 
@@ -37,15 +38,16 @@ export default function Loading() {
         <Skeleton
           width="100%"
           height={1}
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          baseColor="#18181b"
+          highlightColor="#27272a"
         />
 
         {/* Description */}
         <Skeleton
           count={3}
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          baseColor="#18181b"
+          highlightColor="#27272a"
+          className="rounded-lg"
         />
 
         {/* btn Sizes */}
@@ -53,8 +55,9 @@ export default function Loading() {
           <Skeleton
             width={80}
             height={20}
-            baseColor="#2b2b2b"
-            highlightColor="#3a3a3a"
+            baseColor="#18181b"
+            highlightColor="#27272a"
+            className="rounded-lg"
           />
           <div className="flex flex-wrap gap-2 sm:gap-3 mt-2">
             {[...Array(4)].map((_, i) => (
@@ -62,8 +65,8 @@ export default function Loading() {
                 key={i}
                 width={56}
                 height={32}
-                baseColor="#2b2b2b"
-                highlightColor="#3a3a3a"
+                baseColor="#18181b"
+                highlightColor="#27272a"
                 className="rounded-full"
               />
             ))}
@@ -72,10 +75,10 @@ export default function Loading() {
 
         {/* Add to Cart button */}
         <Skeleton
-          width={150}
-          height={45}
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          width={180}
+          height={48}
+          baseColor="#18181b"
+          highlightColor="#27272a"
           className="rounded-full"
         />
       </div>

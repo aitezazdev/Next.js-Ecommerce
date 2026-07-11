@@ -3,7 +3,7 @@ import React from "react";
 
 const SignInBtn = () => {
   return (
-    <Link href={"/auth/signin"} className="px-4 cursor-pointer py-1.5 rounded-full bg-blue-500 font-semibold text-white hover:bg-blue-600 transition-colors duration-300">
+    <Link href={"/auth/signin"} className="px-5 py-2 cursor-pointer rounded-full bg-white text-zinc-950 font-semibold text-xs uppercase tracking-widest hover:bg-zinc-200 transition-colors duration-300">
       Sign In
     </Link>
   );

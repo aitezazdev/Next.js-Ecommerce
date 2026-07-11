@@ -3,8 +3,8 @@ import ProductTitlePriceCard from "@/components/products/ProductTitlePriceCard";
 import { dbGetRandomProducts } from "@/lib/db/products";
 import Image from "next/image";
 import Link from "next/link";
-import { BiDollar } from "react-icons/bi";
 import { getCleanImageUrl } from "@/lib/utils/products";
+
 
 export const metadata = {
   title: "Zaz Store",
@@ -15,46 +15,47 @@ export default async function HomePage() {
   const slug = "printed-summer-shirt";
 
   return (
-    <main className="min-h-[90vh] bg-[#171717]">
-      <div className="flex flex-col md:flex-row gap-2 md:gap-4 lg:gap-5 px-3 sm:px-4 md:px-5 pt-6 sm:pt-10 md:pt-16 lg:pt-20 mb-4 md:mb-5">
+    <main className="min-h-[90vh] bg-zinc-950">
+      <div className="flex flex-col md:flex-row gap-4 px-4 md:px-8 pt-24 pb-8 mb-4 md:mb-5">
 
         <Link
           href={`/products/${slug}`}
           className="
-            bg-[#000000] rounded-md relative
-            border border-transparent hover:border-blue-500
+            bg-zinc-900/40 rounded-xl relative
+            border border-zinc-800 hover:border-zinc-700
             hover:cursor-pointer group
             w-full md:w-4/6 mt-14 sm:mt-0
             h-[38vh] sm:h-[45vh] md:h-[60vh] lg:h-[70vh]
+            transition-all duration-300
           "
         >
           <Image
             src="/products/shirts/shirt4.webp"
-            alt="Summer Shirt"
+            alt="Printed Summer Shirt"
             fill
             sizes="(max-width: 768px) 100vw, 66vw"
             priority
-            className="object-contain p-6 sm:p-10 md:p-14 lg:p-16 group-hover:scale-105 transition-all duration-400"
+            className="object-contain p-6 sm:p-10 md:p-14 lg:p-16 group-hover:scale-[1.02] transition-all duration-500"
           />
 
           <div className="
-            absolute bottom-2 left-2 sm:bottom-3 sm:left-3 md:bottom-10 md:left-8 lg:bottom-12 lg:left-10
+            absolute bottom-4 left-4
             flex items-center
-            border border-gray-700 rounded-full
-            bg-black/60 backdrop-blur-sm
+            border border-zinc-800/80 rounded-full
+            bg-zinc-950/80 backdrop-blur-md p-1
           ">
-            <h3 className="text-gray-300 text-[10px] sm:text-xs md:text-sm px-2 sm:px-3 font-semibold truncate max-w-[120px] sm:max-w-[180px] md:max-w-[220px]">
+            <h3 className="text-zinc-200 text-[10px] sm:text-xs md:text-sm px-3 font-medium truncate max-w-[120px] sm:max-w-[180px] md:max-w-[220px]">
               Printed Summer Shirt
             </h3>
-            <strong className="flex items-center bg-green-900 text-[10px] sm:text-xs md:text-sm text-white px-2 sm:px-3 m-0.5 py-1 sm:py-1.5 rounded-3xl shrink-0">
-              <BiDollar /><span>19</span>
-            </strong>
+            <span className="flex items-center bg-zinc-900 border border-zinc-800 text-[10px] sm:text-xs md:text-sm text-zinc-100 px-3 py-1 sm:py-1.5 rounded-full shrink-0 font-medium font-mono">
+              $19.00
+            </span>
           </div>
         </Link>
 
         <div className="
           w-full md:w-2/6
-          grid grid-cols-2 gap-2
+          grid grid-cols-2 gap-4
           md:grid-cols-1 md:flex md:flex-col md:gap-0 md:space-y-4
         ">
           {randomProducts.map((product) => (
@@ -62,11 +63,12 @@ export default async function HomePage() {
               href={`/products/${product.slug}`}
               key={product._id}
               className="
-                block relative rounded-md
-                border border-transparent hover:border-blue-500
+                block relative rounded-xl
+                border border-zinc-800 hover:border-zinc-700
                 hover:cursor-pointer group
-                bg-[#000000]
+                bg-zinc-900/40
                 h-[22vh] sm:h-[26vh] md:h-[calc(50%-8px)] lg:h-[33.5vh]
+                transition-all duration-300
               "
             >
               <Image
@@ -75,7 +77,7 @@ export default async function HomePage() {
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
                 priority
-                className="object-contain p-2 sm:p-3 group-hover:scale-105 transition-all duration-400"
+                className="object-contain p-4 sm:p-6 group-hover:scale-[1.02] transition-all duration-500"
               />
               <ProductTitlePriceCard product={product} />
             </Link>

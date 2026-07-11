@@ -1,20 +1,25 @@
 @import "tailwindcss";
 
 ::-webkit-scrollbar {
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #2a2a2a;
+  background: #09090b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #555;
-  border-radius: 4px;
+  background-color: #27272a;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3f3f46;
 }
 
 .scroll-animate {
-  animation: infiniteScroll 10s linear infinite;
+  animation: infiniteScroll 25s linear infinite;
 }
 
 @keyframes infiniteScroll {
@@ -25,3 +30,4 @@
     transform: translateX(-50%);
   }
 }
+

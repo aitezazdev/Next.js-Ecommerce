@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { openCart } from "@/redux/slices/modalSlice";
 import toast from "react-hot-toast";
-import { BiDollar } from "react-icons/bi";
 import { PulseLoader } from "react-spinners";
 
 type Props = {
@@ -37,7 +36,7 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
 
   return (
     <div className="
-      w-full min-h-screen bg-black
+      w-full min-h-screen bg-zinc-950
       flex flex-col md:flex-row
       p-4 pt-6
       sm:p-6 sm:pt-8
@@ -47,12 +46,13 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
     ">
 
       <div className="
-        relative mt-16
+        relative mt-20
         w-full md:w-[55%] lg:w-[60%] xl:w-2/3
         h-[50vw] max-h-[340px]
         sm:h-[45vw] sm:max-h-[420px]
         md:h-auto md:max-h-none md:min-h-[65vh]
         shrink-0
+        bg-zinc-900/20 border border-zinc-900/60 rounded-2xl
       ">
         <Image
           src={getCleanImageUrl(product.image)}
@@ -60,7 +60,7 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
           fill
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 55vw, 60vw"
-          className="object-contain p-4 sm:p-6 md:p-8 lg:p-10"
+          className="object-contain p-6 sm:p-10 md:p-12 lg:p-16"
         />
       </div>
 
@@ -68,52 +68,55 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
         w-full md:w-[45%] lg:w-[40%] xl:w-1/3
         text-white
         flex flex-col justify-center
-        gap-4 sm:gap-5
+        gap-6
         pb-8 md:pb-0
+        mt-6 md:mt-20
       ">
-        <h3 className="
-          font-bold leading-tight
-          text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-        ">
-          {product.title}
-        </h3>
+        <div className="flex flex-col gap-2">
+          <h3 className="
+            font-bold leading-tight tracking-tight
+            text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+          ">
+            {product.title}
+          </h3>
 
-        <strong className="
-          rounded-full px-3 py-1.5 sm:px-4 sm:py-2
-          bg-blue-500 w-fit
-          flex items-center gap-0.5
-          text-sm sm:text-base
-        ">
-          <BiDollar className="shrink-0" />
-          {product.price} USD
-        </strong>
+          <span className="
+            rounded-full px-4 py-1.5
+            bg-zinc-900 border border-zinc-800 text-zinc-100 w-fit
+            text-sm sm:text-base font-semibold font-mono
+          ">
+            ${product.price.toFixed(2)} USD
+          </span>
+        </div>
 
-        <p className="border border-gray-700" />
+        <div className="border-t border-zinc-900" />
 
-        <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+        <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-light">
           {product.description}
         </p>
 
         <div>
-          <p className="uppercase tracking-widest text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3">
+          <p className="uppercase tracking-widest text-[10px] font-semibold text-zinc-500 mb-3">
             Select Size
           </p>
-          <div className="flex flex-wrap gap-2 sm:gap-3">
+          <div className="flex flex-wrap gap-2.5">
             {sizes.map((size, index) => (
               <button
                 key={index}
                 onClick={() => setSelectedSize(size)}
                 className={`
-                  text-xs sm:text-sm
-                  px-3 sm:px-4 md:px-5
-                  py-2
-                  min-w-[48px] sm:min-w-[56px]
-                  rounded-full
-                  border border-transparent
-                  hover:border-blue-500
+                  text-xs font-semibold
+                  px-4
+                  py-2.5
+                  min-w-[52px]
+                  rounded-xl
+                  border
+                  transition-all duration-200
                   hover:cursor-pointer
-                  transition-colors duration-200
-                  ${selectedSize === size ? "bg-blue-600 border-blue-600" : "bg-[#171717]"}
+                  ${selectedSize === size
+                    ? "bg-white text-zinc-950 border-white shadow-lg"
+                    : "bg-zinc-900/50 text-zinc-300 border-zinc-800/80 hover:border-zinc-700"
+                  }
                 `}
               >
                 {size}
@@ -126,17 +129,17 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
           onClick={handleAddToCart}
           disabled={!selectedSize}
           className={`
-            mt-1 sm:mt-2
-            px-4 sm:px-6
-            py-3 sm:py-3.5
+            mt-2
+            px-6
+            py-3.5
             rounded-full
-            text-sm sm:text-base font-medium
-            transition-colors duration-300
+            text-xs font-bold uppercase tracking-widest
+            transition-all duration-250
             hover:cursor-pointer
-            flex items-center justify-center min-h-[44px]
+            flex items-center justify-center min-h-[48px]
             ${!selectedSize
-              ? "bg-blue-400 cursor-not-allowed opacity-70"
-              : "bg-blue-500 hover:bg-blue-600"
+              ? "bg-zinc-900 text-zinc-600 border border-zinc-800 cursor-not-allowed"
+              : "bg-white text-zinc-950 hover:bg-zinc-200 shadow-xl"
             }
           `}
         >

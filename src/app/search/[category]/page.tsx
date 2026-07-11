@@ -24,16 +24,20 @@ const CategoryPage = async ({ params, searchParams }: Props) => {
   });
 
   return (
-    <div className="flex bg-[#171717] min-h-[90vh] pt-20 text-white py-5">
+    <div className="flex flex-col md:flex-row bg-zinc-950 min-h-[90vh] text-white px-4 md:px-8 py-8 pt-24 gap-4 md:gap-6">
       <CollectionSidebar />
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-5 grow">
-        {sortedProducts.map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
-      </div>
+      <div className="flex-1 flex flex-col md:flex-row gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 grow auto-rows-max order-2 md:order-1">
+          {sortedProducts.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
 
-      <SortingOrder />
+        <div className="order-1 md:order-2">
+          <SortingOrder />
+        </div>
+      </div>
     </div>
   );
 };

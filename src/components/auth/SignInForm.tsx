@@ -39,44 +39,46 @@ const SignInForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-5 mt-5 text-white">
-      <div className="flex flex-col gap-1">
-        <label className="text-sm" htmlFor="email">Email</label>
+      className="flex flex-col gap-6 mt-6 text-white">
+      <div className="flex flex-col">
+        <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mb-1.5" htmlFor="email">Email Address</label>
         <input
           {...register("email")}
           type="email"
           name="email"
           id="email"
-          placeholder="Enter your Email"
-          className="outline-none border border-gray-800 rounded px-3 py-2.5"
+          placeholder="name@example.com"
+          className="outline-none bg-zinc-900/50 border border-zinc-800 focus:border-zinc-600 rounded-xl px-4 py-3 text-sm placeholder:text-zinc-650 transition-all"
           autoComplete="off"
         />
         {errors.email && (
-          <p className="text-sm text-red-500">{errors.email.message}</p>
+          <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>
         )}
       </div>
-      <div className="flex flex-col gap-1">
-        <label className="text-sm" htmlFor="password">Password</label>
+      <div className="flex flex-col">
+        <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold mb-1.5" htmlFor="password">Password</label>
         <input
           {...register("password")}
           type="password"
           name="password"
           id="password"
-          placeholder="Enter your Password"
-          className="outline-none border border-gray-800 rounded px-3 py-2.5"
+          placeholder="••••••••"
+          className="outline-none bg-zinc-900/50 border border-zinc-800 focus:border-zinc-600 rounded-xl px-4 py-3 text-sm placeholder:text-zinc-650 transition-all"
           autoComplete="off"
         />
         {errors.password && (
-          <p className="text-sm text-red-500">{errors.password.message}</p>
+          <p className="text-xs text-red-500 mt-1">{errors.password.message}</p>
         )}
       </div>
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`bg-blue-500 px-3 py-2.5 text-lg rounded-md my-3 font-semibold transition-colors duration-300 ${
-          isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"
+        className={`px-4 py-3.5 my-2 transition-all duration-200 w-full cursor-pointer text-xs font-bold uppercase tracking-widest rounded-full min-h-[44px] flex items-center justify-center ${
+          isSubmitting
+            ? "bg-zinc-900 text-zinc-500 border border-zinc-800 cursor-not-allowed"
+            : "bg-white text-zinc-950 hover:bg-zinc-200 shadow-xl"
         }`}>
-        {isSubmitting ?  <PulseLoader size={6} color="#fff" /> : "Sign In"}
+        {isSubmitting ? <PulseLoader size={4} color="#52525b" /> : "Sign In"}
       </button>
     </form>
   );

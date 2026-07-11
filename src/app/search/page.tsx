@@ -28,27 +28,29 @@ const AllProductsPage = async ({ searchParams }: Props) => {
   const productNotFound = () => {
     if (query && products.length === 0) {
       return (
-        <div className="min-h-[80vh] bg-[#171717] text-white p-5 font-semibold">
-          <p>No products found for "{query}".</p>
+        <div className="min-h-[60vh] text-zinc-400 p-8 font-semibold flex items-center justify-center w-full">
+          <p>No products found for &ldquo;{query}&rdquo;.</p>
         </div>
       );
     }
   };
 
   return (
-    <div className="flex bg-[#171717] min-h-[90vh] text-white py-5 pt-20">
+    <div className="flex flex-col md:flex-row bg-zinc-950 min-h-[90vh] text-white px-4 md:px-8 py-8 pt-24 gap-4 md:gap-6">
       <CollectionSidebar />
 
       {productNotFound() || (
-        <>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-5 grow">
-            {sortedProducts.map((product, _index) => {
-              return <ProductCard key={product._id} product={product} />;
-            })}
+        <div className="flex-1 flex flex-col md:flex-row gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 grow auto-rows-max order-2 md:order-1">
+            {sortedProducts.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
           </div>
 
-          <SortingOrder />
-        </>
+          <div className="order-1 md:order-2">
+            <SortingOrder />
+          </div>
+        </div>
       )}
     </div>
   );

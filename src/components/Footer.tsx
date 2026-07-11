@@ -24,20 +24,21 @@ const checkForYears = (): number | string => {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#171717] text-gray-400 flex items-center justify-between py-8 px-10">
-      <div className="flex items-center  space-x-6 md:flex-row flex-col">
-        <div className="flex items-center justify-between space-x-1.5">
-          <BiSolidCopyright />
-          <div>{checkForYears()}</div>
+    <footer className="bg-zinc-950 text-zinc-500 flex flex-col md:flex-row items-center justify-between py-8 px-6 md:px-10 border-t border-zinc-900 gap-4 text-xs uppercase tracking-wider">
+      <div className="flex items-center space-x-6 flex-col md:flex-row gap-2 md:gap-0">
+        <div className="flex items-center space-x-1.5">
+          <BiSolidCopyright className="text-sm" />
+          <span>{checkForYears()}</span>
         </div>
-        <p>All rights reserved</p>
+        <p className="normal-case tracking-normal">All rights reserved</p>
       </div>
-      <div className="flex items-center justify-center flex-col md:flex-row space-x-1.5">
+      <div className="flex items-center space-x-1">
         <span>Created by</span>
         <a
-          className="text-blue-500 hover:underline font-bold"
-          href="github.com/aitezazdev"
-          target="_blank">
+          className="text-zinc-300 hover:text-white hover:underline font-medium transition-colors"
+          href="https://github.com/aitezazdev"
+          target="_blank"
+          rel="noopener noreferrer">
           Aitezaz.
         </a>
       </div>

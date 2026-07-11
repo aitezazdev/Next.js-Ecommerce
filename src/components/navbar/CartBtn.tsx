@@ -13,8 +13,8 @@ const CartBtn = () => {
     <>
       <button
         onClick={() => dispatch(openCart())}
-        className="text-xl border rounded-sm p-1.5 border-gray-600 cursor-pointer group transition-all duration-300">
-        <IoCartOutline className="group-hover:scale-105 " />
+        className="text-lg border rounded-lg p-2 border-zinc-800 cursor-pointer group transition-all duration-300 hover:bg-zinc-900/50 hover:border-zinc-700">
+        <IoCartOutline className="group-hover:scale-105" />
       </button>
       <CartModel isOpen={isCartOpen} onClose={() => dispatch(closeCart())} />
     </>

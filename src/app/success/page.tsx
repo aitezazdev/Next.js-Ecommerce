@@ -29,28 +29,28 @@ export default function SuccessPage() {
   }, [sessionId, dispatch]);
 
   return (
-    <div className="min-h-screen flex bg-[#171717] text-white items-center justify-center px-4">
-      <div className="max-w-md w-full bg-[#000000] shadow-xl rounded-2xl p-8 text-center border border-gray-600">
-        <AiFillCheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-        <h1 className="text-2xl md:text-3xl font-bold text-primary-700 mb-2">
-          Payment Successful!
+    <div className="min-h-screen flex bg-zinc-950 text-white items-center justify-center px-4">
+      <div className="max-w-md w-full bg-zinc-900/40 shadow-2xl rounded-2xl p-8 sm:p-10 text-center border border-zinc-800/80">
+        <AiFillCheckCircle className="w-12 h-12 text-white mx-auto mb-6" />
+        <h1 className="text-xl md:text-2xl uppercase tracking-widest font-bold mb-3">
+          Order Confirmed
         </h1>
-        <p className=" mb-6">
+        <p className="text-sm text-zinc-400 font-light mb-8 leading-relaxed">
           Thank you for your order. Your payment has been processed successfully.
         </p>
-        <div className="flex justify-center gap-3">
+        <div className="flex flex-col sm:flex-row justify-center gap-3">
           <Link
-          href="/search"
-          className="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg bg-blue-500 hover:bg-blue-600 transition"
-        >
-          Continue Shopping
-        </Link>
+            href="/search"
+            className="inline-block text-center px-6 py-3.5 bg-white text-zinc-950 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-zinc-200 transition shadow-xl"
+          >
+            Continue Shopping
+          </Link>
           <Link
-          href="/"
-          className="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg bg-red-500 hover:bg-red-600 transition"
-        >
-          Cancel
-        </Link>
+            href="/"
+            className="inline-block text-center px-6 py-3.5 bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-zinc-800 hover:text-white transition"
+          >
+            Back to Home
+          </Link>
         </div>
       </div>
     </div>

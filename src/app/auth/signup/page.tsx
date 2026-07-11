@@ -4,22 +4,22 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="bg-[#171717] min-h-[90vh] w-full pt-20 md:pt-30">
-      <div className="bg-[#000000] w-[calc(100%-32px)] sm:w-[420px] mx-auto rounded-lg p-6 sm:p-8 shadow-2xl">
-        <div className="text-white">
-          <h3 className="text-4xl text-center font-bold">Hey Stranger</h3>
-          <p className="font-semibold text-center my-2 text-lg">
-            Ready to shop the coolest gear?
+    <div className="bg-zinc-950 min-h-[90vh] w-full pt-28 pb-12 flex items-center justify-center px-4">
+      <div className="bg-zinc-900/40 border border-zinc-800/80 w-full sm:w-[420px] rounded-2xl p-6 sm:p-10 shadow-2xl">
+        <div className="text-white text-center mb-6">
+          <h3 className="text-xl uppercase tracking-widest font-bold">Create Account</h3>
+          <p className="text-xs uppercase tracking-wider text-zinc-450 mt-2 font-medium">
+            Join us to explore the premium clothing collections
           </p>
         </div>
 
         <SignUpForm />
 
-        <p className="text-white text-center my-2">
-          Already have an account?
+        <p className="text-zinc-550 text-center text-xs mt-6 uppercase tracking-wider font-semibold">
+          Already registered?
           <Link
             href={"/auth/signin"}
-            className="text-blue-500 hover:cursor-pointer px-1 hover:text-blue-600 transition-colors duration-300">
+            className="text-white hover:underline px-2 transition-all">
             Sign In
           </Link>
         </p>

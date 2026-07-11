@@ -1,6 +1,5 @@
 import { Product } from "@/types/product";
 import React from "react";
-import { BiDollar } from "react-icons/bi";
 
 type Props = {
   product: Product;
@@ -11,32 +10,31 @@ const ProductTitlePriceCard = ({ product, source }: Props) => {
   if (source) {
     return (
       <div className="
-        my-2 mx-auto
-        border border-gray-700
+        my-2.5 mx-auto
+        border border-zinc-800/80
         flex items-center justify-between
         w-fit max-w-[220px] sm:max-w-[260px]
         rounded-full
-        overflow-hidden
+        bg-zinc-950/40 backdrop-blur-sm
+        p-0.5
       ">
         <h3 className="
-          text-gray-300 font-semibold truncate
+          text-zinc-300 font-medium truncate
           text-[10px] sm:text-xs md:text-sm
-          px-2 sm:px-3
+          px-3
           max-w-[130px] sm:max-w-[160px]
         ">
           {product.title}
         </h3>
-        <strong className="
+        <span className="
           flex items-center shrink-0
-          bg-green-900 text-white
+          bg-zinc-900 text-zinc-100 border border-zinc-800/60
           text-[10px] sm:text-xs md:text-sm
-          px-2 sm:px-3
-          m-0.5 py-1 sm:py-1.5
-          rounded-3xl
+          px-3 py-1 sm:py-1.5
+          rounded-full font-medium font-mono
         ">
-          <BiDollar className="shrink-0" />
-          {product.price.toFixed(2)}
-        </strong>
+          ${product.price.toFixed(2)}
+        </span>
       </div>
     );
   }
@@ -44,37 +42,31 @@ const ProductTitlePriceCard = ({ product, source }: Props) => {
   return (
     <div className="
       absolute
-      /* Position: hug the bottom-right corner on all sizes */
-      bottom-1.5 right-1.5
-      sm:bottom-2 sm:right-2
-      md:bottom-2 md:right-2
-      /* Width cap so it never overflows the card */
-      max-w-[calc(100%-12px)] sm:max-w-[200px] md:max-w-[220px]
-      border border-gray-700
+      bottom-2 right-2
+      max-w-[calc(100%-16px)] sm:max-w-[200px] md:max-w-[220px]
+      border border-zinc-800/80
       flex items-center justify-between
       rounded-full
-      overflow-hidden
-      /* Subtle glass effect so it stays legible over any image */
-      bg-black/50 backdrop-blur-sm
+      bg-zinc-950/80 backdrop-blur-md
+      p-0.5
+      shadow-lg
     ">
       <h3 className="
-        text-gray-300 font-semibold truncate
+        text-zinc-300 font-medium truncate
         text-[9px] sm:text-[10px] md:text-xs lg:text-sm
-        px-1.5 sm:px-2 md:px-2
+        px-2.5
       ">
         {product.title}
       </h3>
-      <strong className="
+      <span className="
         flex items-center shrink-0
-        bg-green-900 text-white
+        bg-zinc-900 text-zinc-100 border border-zinc-800/60
         text-[9px] sm:text-[10px] md:text-xs lg:text-sm
-        px-1.5 sm:px-2 md:px-3
-        m-0.5 py-1 sm:py-1 md:py-1.5
-        rounded-3xl
+        px-2.5 py-1 md:py-1.5
+        rounded-full font-medium font-mono
       ">
-        <BiDollar className="shrink-0" />
-        {product.price.toFixed(2)}
-      </strong>
+        ${product.price.toFixed(2)}
+      </span>
     </div>
   );
 };

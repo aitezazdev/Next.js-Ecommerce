@@ -4,23 +4,23 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="bg-[#171717] min-h-[90vh] w-full pt-20 md:pt-30">
-      <div className="bg-[#000000] w-[calc(100%-32px)] sm:w-[420px] mx-auto rounded-lg p-6 sm:p-8 shadow-2xl">
-        <div className="text-white">
-          <h3 className="text-4xl text-center p-2 font-bold">Welcome Back</h3>
-          <p className="font-semibold text-center my-2 text-lg">
-            Enter your credentials to continue
+    <div className="bg-zinc-950 min-h-[90vh] w-full pt-28 pb-12 flex items-center justify-center px-4">
+      <div className="bg-zinc-900/40 border border-zinc-800/80 w-full sm:w-[420px] rounded-2xl p-6 sm:p-10 shadow-2xl">
+        <div className="text-white text-center mb-6">
+          <h3 className="text-xl uppercase tracking-widest font-bold">Welcome Back</h3>
+          <p className="text-xs uppercase tracking-wider text-zinc-450 mt-2 font-medium">
+            Enter details to access your account
           </p>
         </div>
         
         <SignForm />
 
-        <p className="text-white text-center my-2">
-          Don&apos;t have an account?
+        <p className="text-zinc-550 text-center text-xs mt-6 uppercase tracking-wider font-semibold">
+          New here?
           <Link
             href={"/auth/signup"}
-            className="text-blue-500 px-1 hover:cursor-pointer hover:text-blue-600 transition-colors duration-300">
-            Sign Up
+            className="text-white hover:underline px-2 transition-all">
+            Create Account
           </Link>
         </p>
       </div>

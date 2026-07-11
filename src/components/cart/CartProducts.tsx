@@ -8,22 +8,22 @@ const CartProducts = () => {
     useOptimisticCart();
 
   if (!optimisticItems || optimisticItems.length === 0) {
-  return (
-    <div className="flex flex-col items-center justify-center py-12 text-center">
-      <FiShoppingCart className="text-5xl sm:text-6xl text-gray-500 mb-4" />
-      <p className="text-lg sm:text-2xl font-semibold text-gray-300">
-        Your cart is empty
-      </p>
-      <p className="text-sm sm:text-base text-gray-500 mt-1">
-        Add some products to get started!
-      </p>
-    </div>
-  );
-}
+    return (
+      <div className="flex flex-col items-center justify-center py-16 text-center my-auto">
+        <FiShoppingCart className="text-5xl sm:text-6xl text-zinc-650 mb-4" />
+        <p className="text-md font-semibold text-zinc-300">
+          Your cart is empty
+        </p>
+        <p className="text-xs text-zinc-500 mt-2 uppercase tracking-wider">
+          Add products to get started
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <>
-      <div className="flex flex-col gap-2 mt-5 sm:mt-10 h-[50vh] overflow-y-auto pr-1">
+    <div className="flex flex-col h-full overflow-hidden">
+      <div className="flex-1 flex flex-col gap-3 overflow-y-auto pr-1 scrollbar-thin">
         {optimisticItems.map((item) => (
           <SingleCartProduct
             key={`${item.product._id}-${item.size}`}
@@ -35,7 +35,7 @@ const CartProducts = () => {
         ))}
       </div>
       <ProductsCheckout totalAmount={() => totalAmount} />
-    </>
+    </div>
   );
 };
 
