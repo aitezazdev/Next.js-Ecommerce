@@ -15,7 +15,7 @@ const ProductCard = async ({ product }: Props) => {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="relative bg-zinc-900/40 text-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 h-[260px] md:h-[350px] group hover:cursor-pointer border border-zinc-800/80 hover:border-zinc-700/80">
+      className="relative bg-zinc-900/40 text-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 h-[260px] md:h-[350px] group hover:cursor-pointer border border-zinc-800 hover:border-zinc-800">
       <div className="relative w-full h-44 sm:h-56 md:h-64">
         <Image
           src={getCleanImageUrl(product.image)}

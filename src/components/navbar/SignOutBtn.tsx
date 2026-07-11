@@ -29,7 +29,7 @@ const SignOutBtn = () => {
   return (
     <button
       onClick={handleSignOut}
-      className="border border-zinc-800 px-5 py-2 text-zinc-300 font-semibold rounded-full text-xs uppercase tracking-widest cursor-pointer transition-all duration-250 hover:text-white hover:bg-zinc-900 hover:border-zinc-700 min-w-[100px] flex items-center justify-center">
+      className="border border-zinc-800 px-5 py-2 text-zinc-300 font-semibold rounded-full text-xs uppercase tracking-widest cursor-pointer transition-all duration-250 hover:text-white hover:bg-zinc-900 hover:border-zinc-800 min-w-[100px] flex items-center justify-center">
       {loading ? <PulseLoader size={4} color="#fff" /> : "Sign Out"}
     </button>
   );

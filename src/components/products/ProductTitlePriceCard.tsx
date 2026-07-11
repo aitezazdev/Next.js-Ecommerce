@@ -11,7 +11,7 @@ const ProductTitlePriceCard = ({ product, source }: Props) => {
     return (
       <div className="
         my-2.5 mx-auto
-        border border-zinc-800/80
+        border border-zinc-800
         flex items-center justify-between
         w-fit max-w-[220px] sm:max-w-[260px]
         rounded-full
@@ -28,7 +28,7 @@ const ProductTitlePriceCard = ({ product, source }: Props) => {
         </h3>
         <span className="
           flex items-center shrink-0
-          bg-zinc-900 text-zinc-100 border border-zinc-800/60
+          bg-zinc-900 text-zinc-100 border border-zinc-800
           text-[10px] sm:text-xs md:text-sm
           px-3 py-1 sm:py-1.5
           rounded-full font-medium font-mono
@@ -44,7 +44,7 @@ const ProductTitlePriceCard = ({ product, source }: Props) => {
       absolute
       bottom-2 right-2
       max-w-[calc(100%-16px)] sm:max-w-[200px] md:max-w-[220px]
-      border border-zinc-800/80
+      border border-zinc-800
       flex items-center justify-between
       rounded-full
       bg-zinc-950/80 backdrop-blur-md
@@ -60,7 +60,7 @@ const ProductTitlePriceCard = ({ product, source }: Props) => {
       </h3>
       <span className="
         flex items-center shrink-0
-        bg-zinc-900 text-zinc-100 border border-zinc-800/60
+        bg-zinc-900 text-zinc-100 border border-zinc-800
         text-[9px] sm:text-[10px] md:text-xs lg:text-sm
         px-2.5 py-1 md:py-1.5
         rounded-full font-medium font-mono

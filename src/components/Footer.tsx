@@ -24,7 +24,7 @@ const checkForYears = (): number | string => {
 
 const Footer = () => {
   return (
-    <footer className="bg-zinc-950 text-zinc-500 flex flex-col md:flex-row items-center justify-between py-8 px-6 md:px-10 border-t border-zinc-900 gap-4 text-xs uppercase tracking-wider">
+    <footer className="bg-zinc-950 text-zinc-500 flex flex-col md:flex-row items-center justify-between py-8 px-6 md:px-10 border-t border-zinc-800 gap-4 text-xs uppercase tracking-wider">
       <div className="flex items-center space-x-6 flex-col md:flex-row gap-2 md:gap-0">
         <div className="flex items-center space-x-1.5">
           <BiSolidCopyright className="text-sm" />
@@ -35,7 +35,7 @@ const Footer = () => {
       <div className="flex items-center space-x-1">
         <span>Created by</span>
         <a
-          className="text-zinc-300 hover:text-white hover:underline font-medium transition-colors"
+          className="text-zinc-300 hover:text-brand font-medium transition-colors"
           href="https://github.com/aitezazdev"
           target="_blank"
           rel="noopener noreferrer">

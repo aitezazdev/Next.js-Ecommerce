@@ -26,7 +26,7 @@ const Navbar = () => {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <nav className="bg-zinc-950/80 backdrop-blur-md text-white py-3 select-none fixed w-full z-50 border-b border-zinc-900/80">
+    <nav className="bg-zinc-950/80 backdrop-blur-md text-white py-3 select-none fixed w-full z-50 border-b border-zinc-800">
       <div className="flex items-center justify-between md:py-2 py-1 px-4 md:px-8">
         <h1 className="text-lg md:text-xl font-bold tracking-wider">
           <Link href="/" className="hover:opacity-90 transition-opacity">ZAZ STORE</Link>
@@ -42,7 +42,7 @@ const Navbar = () => {
                 href={link.href}
                 className={`text-xs uppercase tracking-widest transition-colors font-medium ${
                   isActive
-                    ? "text-white"
+                    ? "text-brand"
                     : "text-zinc-400 hover:text-white"
                 }`}>
                 {link.label}
@@ -80,10 +80,10 @@ const Navbar = () => {
         }`}>
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-zinc-950/95 border-l border-zinc-900 shadow-2xl flex flex-col transform transition-transform duration-300 z-50 ${
+          className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-zinc-950/95 border-l border-zinc-800 shadow-2xl flex flex-col transform transition-transform duration-300 z-50 ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}>
-          <div className="flex justify-between items-center px-5 py-4 border-b border-zinc-900">
+          <div className="flex justify-between items-center px-5 py-4 border-b border-zinc-800">
             <h2 className="text-sm uppercase tracking-widest text-zinc-400 font-semibold">Menu</h2>
             <button
               className="text-white border rounded-lg p-1.5 border-zinc-800 cursor-pointer hover:bg-zinc-900 transition-all duration-300"
@@ -92,7 +92,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="p-4 border-b border-zinc-900">
+          <div className="p-4 border-b border-zinc-800">
             <Search onSearch={closeMobileMenu} />
           </div>
 
@@ -129,7 +129,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="p-5 border-t border-zinc-900 bg-zinc-950 flex justify-center">
+          <div className="p-5 border-t border-zinc-800 bg-zinc-950 flex justify-center">
             {user ? <SignOutBtn /> : <LoginBtn />}
           </div>
         </div>

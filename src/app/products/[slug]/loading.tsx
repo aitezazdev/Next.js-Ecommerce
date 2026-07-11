@@ -5,7 +5,7 @@ export default function Loading() {
   return (
     <div className="w-full min-h-screen p-4 pt-24 pb-12 sm:p-6 md:p-10 bg-zinc-950 flex flex-col md:flex-row gap-6 md:gap-10">
       {/* Product image skeleton */}
-      <div className="relative w-full md:w-2/3 h-72 sm:h-96 md:h-[80vh] bg-zinc-900/10 border border-zinc-900/60 rounded-2xl p-2">
+      <div className="relative w-full md:w-2/3 h-72 sm:h-96 md:h-[80vh] bg-zinc-900/10 border border-zinc-800 rounded-2xl p-2">
         <Skeleton
           height="100%"
           baseColor="#18181b"

@@ -25,7 +25,7 @@ const CollectionSidebar = () => {
               <Link
                 key={item.href}
                 className={`text-xs uppercase tracking-wider transition-colors duration-250 ${
-                  isActive ? "text-white font-semibold" : "text-zinc-450 hover:text-white"
+                  isActive ? "text-brand font-semibold" : "text-zinc-450 hover:text-white"
                 }`}
                 href={item.href}
               >
@@ -45,8 +45,8 @@ const CollectionSidebar = () => {
               key={item.href}
               className={`px-4 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold border transition-all shrink-0 ${
                 isActive
-                  ? "bg-white text-zinc-950 border-white shadow-md"
-                  : "bg-zinc-900/50 text-zinc-400 border-zinc-800/80 hover:text-white hover:border-zinc-700"
+                  ? "bg-brand text-white border-zinc-200 shadow-md"
+                  : "bg-zinc-900/50 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-800"
               }`}
               href={item.href}
             >

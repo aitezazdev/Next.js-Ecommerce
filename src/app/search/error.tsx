@@ -2,12 +2,12 @@
 
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   return (
-    <div className="min-h-[90vh] bg-[#171717] flex flex-col items-center justify-center text-center p-4">
-      <h1 className="text-2xl font-bold mb-2 text-red-600">Something went wrong</h1>
-      <p className="mb-4 text-gray-500">{error.message}</p>
+    <div className="min-h-[90vh] bg-zinc-950 flex flex-col items-center justify-center text-center p-4">
+      <h1 className="text-xl uppercase tracking-widest font-bold mb-3 text-white">Something went wrong</h1>
+      <p className="mb-6 text-zinc-500 text-sm font-light">{error.message}</p>
       <button
         onClick={() => reset()}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer transition"
+        className="px-6 py-3 bg-brand text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-hover hover:scale-[1.01] active:scale-[0.99] cursor-pointer transition-all shadow-xl"
       >
         Try Again
       </button>

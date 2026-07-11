@@ -24,13 +24,13 @@ const CartModel = ({ isOpen, onClose }: Cart) => {
       }`}>
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`absolute right-0 top-0 h-full w-3/4 sm:w-[400px] border-l border-zinc-900 cursor-default bg-zinc-950/95 p-0.5 md:p-6 shadow-2xl transition-transform duration-300 ${
+        className={`absolute right-0 top-0 h-full w-3/4 sm:w-[400px] border-l border-zinc-800 cursor-default bg-zinc-950/95 p-0.5 md:p-6 shadow-2xl transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transform flex flex-col`}>
         <div className="flex justify-between items-center mb-6 px-3 sm:px-5 mt-2.5">
           <h2 className="text-md uppercase tracking-widest text-zinc-200 font-bold">My Cart</h2>
           <button
-            className="text-white border rounded-lg p-2 border-zinc-800 cursor-pointer group transition-all duration-300 hover:bg-zinc-900 hover:border-zinc-700"
+            className="text-white border rounded-lg p-2 border-zinc-800 cursor-pointer group transition-all duration-300 hover:bg-zinc-900 hover:border-zinc-800"
             onClick={onClose}>
             <IoClose
               className="cursor-pointer group-hover:scale-105"

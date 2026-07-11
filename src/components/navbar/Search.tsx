@@ -18,7 +18,7 @@ const Search = ({ onSearch }: Props) => {
         key={searchParams.get("query")}
         autoComplete="off"
         defaultValue={searchParams.get("query") || ""}
-        className="w-full md:w-48 lg:w-80 bg-zinc-900/50 border border-zinc-800 focus:border-zinc-700 text-white outline-none rounded-full py-1.5 pl-4 pr-10 placeholder:text-xs placeholder:uppercase placeholder:tracking-wider placeholder:text-zinc-500 text-xs transition-all duration-300"
+        className="w-full md:w-48 lg:w-80 bg-zinc-900/50 border border-zinc-800 focus:border-zinc-200 text-white outline-none rounded-full py-1.5 pl-4 pr-10 placeholder:text-xs placeholder:uppercase placeholder:tracking-wider placeholder:text-zinc-500 text-xs transition-all duration-300"
         type="text"
         placeholder="Search..."
       />

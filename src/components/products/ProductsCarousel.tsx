@@ -34,7 +34,7 @@ const ProductsCarousel = async () => {
               className="
                 snap-start shrink-0
                 bg-zinc-900/40 rounded-xl relative
-                border border-zinc-800 hover:border-zinc-700
+                border border-zinc-800 hover:border-zinc-800
                 hover:cursor-pointer group
                 /* width ladder: phone → phablet → tablet → desktop */
                 w-[200px]

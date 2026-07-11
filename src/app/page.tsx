@@ -22,7 +22,7 @@ export default async function HomePage() {
           href={`/products/${slug}`}
           className="
             bg-zinc-900/40 rounded-xl relative
-            border border-zinc-800 hover:border-zinc-700
+            border border-zinc-800 hover:border-zinc-800
             hover:cursor-pointer group
             w-full md:w-4/6 mt-14 sm:mt-0
             h-[38vh] sm:h-[45vh] md:h-[60vh] lg:h-[70vh]
@@ -41,7 +41,7 @@ export default async function HomePage() {
           <div className="
             absolute bottom-4 left-4
             flex items-center
-            border border-zinc-800/80 rounded-full
+            border border-zinc-800 rounded-full
             bg-zinc-950/80 backdrop-blur-md p-1
           ">
             <h3 className="text-zinc-200 text-[10px] sm:text-xs md:text-sm px-3 font-medium truncate max-w-[120px] sm:max-w-[180px] md:max-w-[220px]">
@@ -64,7 +64,7 @@ export default async function HomePage() {
               key={product._id}
               className="
                 block relative rounded-xl
-                border border-zinc-800 hover:border-zinc-700
+                border border-zinc-800 hover:border-zinc-800
                 hover:cursor-pointer group
                 bg-zinc-900/40
                 h-[22vh] sm:h-[26vh] md:h-[calc(50%-8px)] lg:h-[33.5vh]

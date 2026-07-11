@@ -3,14 +3,14 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Loading() {
   return (
-    <div className="bg-[#171717] min-h-[90vh] w-full pt-20 md:pt-30">
-      <div className="bg-black w-full md:w-[420px] mx-auto rounded-lg p-5">
+    <div className="bg-zinc-950 min-h-[90vh] w-full pt-28 pb-12 flex items-center justify-center px-4">
+      <div className="bg-zinc-900/40 border border-zinc-800 w-full sm:w-[420px] rounded-2xl p-6 sm:p-10 shadow-2xl">
         {/* Title */}
         <Skeleton
           height={40}
           width="70%"
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          baseColor="#18181b"
+          highlightColor="#27272a"
           className="mx-auto mb-3"
         />
 
@@ -18,32 +18,32 @@ export default function Loading() {
         <Skeleton
           height={20}
           width="90%"
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          baseColor="#18181b"
+          highlightColor="#27272a"
           className="mx-auto mb-5"
         />
 
-        {/* Form fields like passowrd or name */}
+        {/* Form fields like password or name */}
         <div className="flex flex-col gap-4 mb-4">
           <Skeleton
             height={45}
-            baseColor="#2b2b2b"
-            highlightColor="#3a3a3a"
-            className="rounded-md"
+            baseColor="#18181b"
+            highlightColor="#27272a"
+            className="rounded-xl"
           />
           <Skeleton
             height={45}
-            baseColor="#2b2b2b"
-            highlightColor="#3a3a3a"
-            className="rounded-md"
+            baseColor="#18181b"
+            highlightColor="#27272a"
+            className="rounded-xl"
           />
         </div>
 
         {/* Button */}
         <Skeleton
           height={50}
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          baseColor="#18181b"
+          highlightColor="#27272a"
           className="rounded-full mb-3"
         />
 
@@ -51,8 +51,8 @@ export default function Loading() {
         <Skeleton
           height={20}
           width="60%"
-          baseColor="#2b2b2b"
-          highlightColor="#3a3a3a"
+          baseColor="#18181b"
+          highlightColor="#27272a"
           className="mx-auto"
         />
       </div>

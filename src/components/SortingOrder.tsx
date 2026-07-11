@@ -35,7 +35,7 @@ const SortingOrder = () => {
               <Link
                 key={opt.value}
                 className={`text-xs uppercase tracking-wider transition-colors duration-250 ${
-                  isActive ? "text-white font-semibold" : "text-zinc-450 hover:text-white"
+                  isActive ? "text-brand font-semibold" : "text-zinc-450 hover:text-white"
                 }`}
                 href={createSortLink(opt.value)}
               >
@@ -55,8 +55,8 @@ const SortingOrder = () => {
               key={opt.value}
               className={`px-4 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold border transition-all shrink-0 ${
                 isActive
-                  ? "bg-white text-zinc-950 border-white shadow-md"
-                  : "bg-zinc-900/50 text-zinc-400 border-zinc-800/80 hover:text-white hover:border-zinc-700"
+                  ? "bg-brand text-white border-zinc-200 shadow-md"
+                  : "bg-zinc-900/50 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-800"
               }`}
               href={createSortLink(opt.value)}
             >

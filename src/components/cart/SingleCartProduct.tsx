@@ -16,13 +16,13 @@ const SingleCartProduct = ({ item, onDecrease, onIncrease, onRemove }: Props) =>
   const { product, quantity, size } = item;
 
   return (
-    <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 py-4 border-b border-zinc-900/60">
+    <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 py-4 border-b border-zinc-800">
       <Image
         width={56}
         height={56}
         src={getCleanImageUrl(product.image)}
         alt={product.title}
-        className="rounded-xl w-14 h-14 p-1 border border-zinc-900 object-contain bg-zinc-950/40"
+        className="rounded-xl w-14 h-14 p-1 border border-zinc-800 object-contain bg-zinc-950/40"
       />
 
       <div className="flex-1 text-white min-w-[120px]">

@@ -52,7 +52,7 @@ const SignUpForm = () => {
           name="email"
           id="email"
           placeholder="name@example.com"
-          className="outline-none bg-zinc-900/50 border border-zinc-800 focus:border-zinc-600 rounded-xl px-4 py-3 text-sm placeholder:text-zinc-650 transition-all"
+          className="outline-none bg-zinc-900/50 border border-zinc-800 focus:border-zinc-200 rounded-xl px-4 py-3 text-sm placeholder:text-zinc-650 transition-all"
           autoComplete="off"
         />
         {errors.email && (
@@ -70,7 +70,7 @@ const SignUpForm = () => {
           name="password"
           id="password"
           placeholder="••••••••"
-          className="outline-none bg-zinc-900/50 border border-zinc-800 focus:border-zinc-600 rounded-xl px-4 py-3 text-sm placeholder:text-zinc-650 transition-all"
+          className="outline-none bg-zinc-900/50 border border-zinc-800 focus:border-zinc-200 rounded-xl px-4 py-3 text-sm placeholder:text-zinc-650 transition-all"
           autoComplete="off"
         />
         {errors.password && (
@@ -89,7 +89,7 @@ const SignUpForm = () => {
           name="confirmPassword"
           id="confirmPassword"
           placeholder="••••••••"
-          className="outline-none bg-zinc-900/50 border border-zinc-800 focus:border-zinc-600 rounded-xl px-4 py-3 text-sm placeholder:text-zinc-650 transition-all"
+          className="outline-none bg-zinc-900/50 border border-zinc-800 focus:border-zinc-200 rounded-xl px-4 py-3 text-sm placeholder:text-zinc-650 transition-all"
           autoComplete="off"
         />
         {errors.confirmPassword && (
@@ -104,7 +104,7 @@ const SignUpForm = () => {
         className={`px-4 py-3.5 my-2 transition-all duration-200 w-full cursor-pointer text-xs font-bold uppercase tracking-widest rounded-full min-h-[44px] flex items-center justify-center ${
           isSubmitting
             ? "bg-zinc-900 text-zinc-500 border border-zinc-800 cursor-not-allowed"
-            : "bg-white text-zinc-950 hover:bg-zinc-200 shadow-xl"
+            : "bg-brand text-white hover:bg-brand-hover shadow-xl hover:scale-[1.01] active:scale-[0.99]"
         }`}>
         {isSubmitting ? <PulseLoader size={4} color="#52525b" /> : "Sign Up"}
       </button>

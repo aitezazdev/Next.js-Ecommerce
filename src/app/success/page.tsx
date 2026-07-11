@@ -30,8 +30,8 @@ export default function SuccessPage() {
 
   return (
     <div className="min-h-screen flex bg-zinc-950 text-white items-center justify-center px-4">
-      <div className="max-w-md w-full bg-zinc-900/40 shadow-2xl rounded-2xl p-8 sm:p-10 text-center border border-zinc-800/80">
-        <AiFillCheckCircle className="w-12 h-12 text-white mx-auto mb-6" />
+      <div className="max-w-md w-full bg-zinc-900/40 shadow-2xl rounded-2xl p-8 sm:p-10 text-center border border-zinc-800">
+        <AiFillCheckCircle className="w-12 h-12 text-brand mx-auto mb-6 animate-pulse" />
         <h1 className="text-xl md:text-2xl uppercase tracking-widest font-bold mb-3">
           Order Confirmed
         </h1>
@@ -41,13 +41,13 @@ export default function SuccessPage() {
         <div className="flex flex-col sm:flex-row justify-center gap-3">
           <Link
             href="/search"
-            className="inline-block text-center px-6 py-3.5 bg-white text-zinc-950 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-zinc-200 transition shadow-xl"
+            className="inline-block text-center px-6 py-3.5 bg-brand text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-hover hover:scale-[1.01] active:scale-[0.99] transition-all shadow-xl"
           >
             Continue Shopping
           </Link>
           <Link
             href="/"
-            className="inline-block text-center px-6 py-3.5 bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-zinc-800 hover:text-white transition"
+            className="inline-block text-center px-6 py-3.5 bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-zinc-800 hover:text-white hover:scale-[1.01] active:scale-[0.99] transition-all"
           >
             Back to Home
           </Link>

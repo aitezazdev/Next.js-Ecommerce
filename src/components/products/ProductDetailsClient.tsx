@@ -52,7 +52,7 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
         sm:h-[45vw] sm:max-h-[420px]
         md:h-auto md:max-h-none md:min-h-[65vh]
         shrink-0
-        bg-zinc-900/20 border border-zinc-900/60 rounded-2xl
+        bg-zinc-900/20 border border-zinc-800 rounded-2xl
       ">
         <Image
           src={getCleanImageUrl(product.image)}
@@ -89,7 +89,7 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
           </span>
         </div>
 
-        <div className="border-t border-zinc-900" />
+        <div className="border-t border-zinc-800" />
 
         <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-light">
           {product.description}
@@ -114,8 +114,8 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
                   transition-all duration-200
                   hover:cursor-pointer
                   ${selectedSize === size
-                    ? "bg-white text-zinc-950 border-white shadow-lg"
-                    : "bg-zinc-900/50 text-zinc-300 border-zinc-800/80 hover:border-zinc-700"
+                    ? "bg-brand text-white border-zinc-200 shadow-lg"
+                    : "bg-zinc-900/50 text-zinc-300 border-zinc-800 hover:border-zinc-800"
                   }
                 `}
               >
@@ -139,7 +139,7 @@ const ProductDetailsClient = ({ product, sizes }: Props) => {
             flex items-center justify-center min-h-[48px]
             ${!selectedSize
               ? "bg-zinc-900 text-zinc-600 border border-zinc-800 cursor-not-allowed"
-              : "bg-white text-zinc-950 hover:bg-zinc-200 shadow-xl"
+              : "bg-brand text-white hover:bg-brand-hover shadow-xl hover:scale-[1.01] active:scale-[0.99]"
             }
           `}
         >
