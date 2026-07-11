@@ -13,6 +13,11 @@ interface Cart {
 
 const CartModel = ({ isOpen, onClose }: Cart) => {
   const { user, loading } = useSelector((state: RootState) => state.auth);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <div
@@ -26,7 +31,7 @@ const CartModel = ({ isOpen, onClose }: Cart) => {
         onClick={(e) => e.stopPropagation()}
         className={`absolute right-0 top-0 h-full w-3/4 sm:w-[400px] border-l border-zinc-800 cursor-default bg-zinc-950/95 p-0.5 md:p-6 shadow-2xl transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } transform flex flex-col`}>
+        } transform`}>
         <div className="flex justify-between items-center mb-6 px-3 sm:px-5 mt-2.5">
           <h2 className="text-md uppercase tracking-widest text-zinc-200 font-bold">My Cart</h2>
           <button
@@ -38,16 +43,18 @@ const CartModel = ({ isOpen, onClose }: Cart) => {
             />
           </button>
         </div>
-        <div className="px-3 sm:px-5 flex-1 flex flex-col overflow-hidden">
-          {!loading && user ? (
-            <CartProducts />
-          ) : (
-            <div className="px-3 sm:px-5 flex flex-col items-center justify-center py-12 text-center my-auto">
-              <FiLogIn className="text-4xl sm:text-5xl mb-4 text-zinc-650" />
-              <p className="text-md font-semibold text-zinc-300">
-                Please sign in to view your cart
-              </p>
-            </div>
+        <div className="px-3 sm:px-5">
+          {mounted && (
+            !loading && user ? (
+              <CartProducts />
+            ) : (
+              <div className="px-3 sm:px-5 flex flex-col items-center justify-center py-12 text-center my-auto">
+                <FiLogIn className="text-4xl sm:text-5xl mb-4 text-zinc-650" />
+                <p className="text-md font-semibold text-zinc-300">
+                  Please sign in to view your cart
+                </p>
+              </div>
+            )
           )}
         </div>
       </div>

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { setUser } from "@/redux/slices/authSlice";
 import { fetchCart } from "@/redux/auth/cartThunks";
 import { CartProvider } from "@/hooks/useOptimisticCart";
+import { setCartItems } from "@/redux/slices/cartSlice";
 
 function HydrateUser({ user }: { user: any }) {
   const dispatch = useDispatch<AppDispatch>();
@@ -13,6 +14,9 @@ function HydrateUser({ user }: { user: any }) {
     const hydrate = async () => {
       if (user) {
         dispatch(setUser(user));
+        if (user.cart) {
+          dispatch(setCartItems(user.cart));
+        }
         try {
           await dispatch(fetchCart());
         } catch (error) {
