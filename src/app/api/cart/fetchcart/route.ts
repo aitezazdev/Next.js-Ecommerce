@@ -16,6 +16,12 @@ export const POST = async (req: NextRequest) => {
     }
 
     const user = await User.findById(userId).populate("cart.product");
+    const originalLength = user.cart?.length || 0;
+    user.cart = (user.cart || []).filter((item: any) => item.product !== null);
+    if (user.cart.length !== originalLength) {
+      await user.save();
+    }
+
     if(!user.cart ||user.cart.length === 0) {
       return NextResponse.json({
         message: "Cart is empty",

@@ -109,10 +109,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   const totalAmount = Array.isArray(optimisticItems)
-    ? optimisticItems.reduce(
-        (acc, item) => acc + item.quantity * item.product.price,
-        0
-      )
+    ? optimisticItems
+        .filter((item) => item.product && typeof item.product !== "string")
+        .reduce(
+          (acc, item) => acc + item.quantity * (item.product as Product).price,
+          0
+        )
     : 0;
 
   return React.createElement(CartContext.Provider, {

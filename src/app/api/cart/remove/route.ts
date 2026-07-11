@@ -60,6 +60,13 @@ export const POST = async (req: NextRequest) => {
     user.cart.splice(cartItemIndex, 1);
 
     await user.save();
+    await user.populate("cart.product");
+
+    const originalLength = user.cart?.length || 0;
+    user.cart = (user.cart || []).filter((item: any) => item.product !== null);
+    if (user.cart.length !== originalLength) {
+      await user.save();
+    }
 
     return NextResponse.json(
       {
