@@ -7,7 +7,7 @@ type addToCartPayload = {
   size: string;
 };
 
-// FETCH CART
+
 export const fetchCart = createAsyncThunk(
   "cart/fetchCart",
   async (_, { rejectWithValue }) => {
@@ -22,7 +22,7 @@ export const fetchCart = createAsyncThunk(
   }
 );
 
-// ADD TO CART
+
 export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async (data: addToCartPayload, { rejectWithValue }) => {
@@ -37,7 +37,7 @@ export const addToCart = createAsyncThunk(
   }
 );
 
-// DECREASE  CART
+
 export const decreaseCart = createAsyncThunk(
   "cart/decreaseCart",
   async (data: addToCartPayload, { rejectWithValue }) => {
@@ -52,7 +52,7 @@ export const decreaseCart = createAsyncThunk(
   }
 );
 
-// REMOVE CART
+
 export const removeFromCart = createAsyncThunk(
   "cart/removeFromCart",
   async (data: addToCartPayload, { rejectWithValue }) => {

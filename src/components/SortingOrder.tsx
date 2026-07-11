@@ -25,7 +25,7 @@ const SortingOrder = () => {
 
   return (
     <aside className="w-full md:w-auto md:px-8 shrink-0">
-      {/* Desktop view */}
+      {}
       <div className="hidden md:block">
         <strong className="text-zinc-550 uppercase tracking-widest text-[10px] font-bold block mb-3">Sort by</strong>
         <div className="flex flex-col space-y-2">
@@ -46,7 +46,7 @@ const SortingOrder = () => {
         </div>
       </div>
 
-      {/* Mobile view: horizontal scroll of pills */}
+      {}
       <div className="md:hidden px-4 mb-6 overflow-x-auto scrollbar-none flex gap-2 w-full py-1">
         {options.map((opt) => {
           const isActive = currentSort === opt.value;

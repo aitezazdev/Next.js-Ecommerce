@@ -12,7 +12,7 @@ type Params = {
   }>;
 };
 
-// update a product
+
 export const PUT = async (req: NextRequest, { params }: Params) => {
   try {
     await connectDB();
@@ -77,7 +77,7 @@ export const PUT = async (req: NextRequest, { params }: Params) => {
   }
 };
 
-// delete a product
+
 export const DELETE = async (req: NextRequest, { params }: Params) => {
   try {
     await connectDB();

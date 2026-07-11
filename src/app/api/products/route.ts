@@ -6,7 +6,7 @@ import { validateRequest } from "@/lib/validations/validateSchema";
 import { NextRequest, NextResponse } from "next/server";
 import slugify from "slugify";
 
-// get all products
+
 export const GET = async () => {
   try {
     await connectDB();
@@ -17,7 +17,7 @@ export const GET = async () => {
   }
 };
 
-// create a product
+
 export const POST = async (req: NextRequest) => {
   try {
     await connectDB();

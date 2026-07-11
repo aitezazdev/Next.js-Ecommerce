@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { UserData } from "@/types/userData";
 import api from "@/lib/apiClient/axios";
 
-// SIGN UP
+
 export const signUpUser = createAsyncThunk(
   "auth/signUpUser",
   async (data: UserData, { rejectWithValue }) => {
@@ -21,7 +21,7 @@ export const signUpUser = createAsyncThunk(
   }
 );
 
-// SIGN IN
+
 export const signInUser = createAsyncThunk(
   "auth/signInUser",
   async (data: UserData, { rejectWithValue }) => {
@@ -40,7 +40,7 @@ export const signInUser = createAsyncThunk(
   }
 );
 
-// SIGN OUT
+
 export const signOutUser = createAsyncThunk(
   "auth/signOutUser",
   async (_, { rejectWithValue }) => {

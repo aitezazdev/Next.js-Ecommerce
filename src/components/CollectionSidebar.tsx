@@ -15,7 +15,7 @@ const CollectionSidebar = () => {
 
   return (
     <aside className="w-full md:w-auto md:px-4 md:pr-10 md:mr-7 shrink-0">
-      {/* Desktop view */}
+      {}
       <div className="hidden md:block">
         <strong className="text-zinc-550 uppercase tracking-widest text-[10px] font-bold block mb-3">Collections</strong>
         <div className="flex flex-col space-y-2">
@@ -36,7 +36,7 @@ const CollectionSidebar = () => {
         </div>
       </div>
 
-      {/* Mobile view: horizontal scroll of pills */}
+      {}
       <div className="md:hidden px-4 mb-4 overflow-x-auto scrollbar-none flex gap-2 w-full py-1">
         {items.map((item) => {
           const isActive = pathname === item.href;

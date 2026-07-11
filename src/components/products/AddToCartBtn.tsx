@@ -43,13 +43,22 @@ const AddToCartBtn = ({
   };
   return (
     <button
+      disabled={isPending}
       onClick={(e) => {
         handleClick(e);
         addProductToCart();
       }}
-      className="absolute right-3 top-3 w-8 h-8 md:w-auto md:h-auto p-1.5 md:px-4 md:py-1.5 rounded-full text-zinc-950 bg-white hover:cursor-pointer hover:bg-zinc-200 transition-all duration-250 flex items-center justify-center shadow-lg active:scale-95 text-[10px] font-semibold uppercase tracking-wider">
-      <span className="hidden md:inline">Add to Cart</span>
-      <span className="inline md:hidden flex items-center justify-center"><IoAdd size={16} /></span>
+      className={`absolute right-3 top-3 w-8 h-8 md:w-auto md:h-auto p-1.5 md:px-4 md:py-1.5 rounded-full text-zinc-950 bg-white hover:cursor-pointer hover:bg-zinc-200 transition-all duration-250 flex items-center justify-center shadow-lg active:scale-95 text-[10px] font-semibold uppercase tracking-wider gap-1 ${
+        isPending ? "opacity-75 cursor-not-allowed" : ""
+      }`}>
+      {isPending ? (
+        <div className="h-3.5 w-3.5 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin"></div>
+      ) : (
+        <>
+          <span className="hidden md:inline">Add to Cart</span>
+          <span className="inline md:hidden flex items-center justify-center"><IoAdd size={16} /></span>
+        </>
+      )}
     </button>
   );
 };
